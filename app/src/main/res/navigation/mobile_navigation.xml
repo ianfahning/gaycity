@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="project.gaycity.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_testing"
+        android:name="project.gaycity.ui.testing.TestingFragment"
+        android:label="Testing"
+        tools:layout="@layout/fragment_testing" />
+
+    <fragment
+        android:id="@+id/nav_resources"
+        android:name="project.gaycity.ui.resources.ResourcesFragment"
+        android:label="Resources"
+        tools:layout="@layout/fragment_resources" />
+
+    <fragment
+        android:id="@+id/nav_donate"
+        android:name="project.gaycity.ui.donate.DonateFragment"
+        android:label="Donate"
+        tools:layout="@layout/fragment_resources" />
+</navigation>
