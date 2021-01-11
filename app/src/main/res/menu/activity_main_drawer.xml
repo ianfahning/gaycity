@@ -11,15 +11,27 @@
         <item
             android:id="@+id/nav_testing"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Testing" />
+            android:title="About" />
         <item
             android:id="@+id/nav_resources"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Resources" />
+            android:title="Health" />
 
         <item
             android:id="@+id/nav_donate"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Donate" />
+            android:title="Resources" />
+        <item
+            android:id="@+id/nav_arts"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Arts" />
+        <item
+            android:id="@+id/nav_youth"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Youth" />
+        <item
+            android:id="@+id/nav_involved"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Get Involved" />
     </group>
 </menu>
