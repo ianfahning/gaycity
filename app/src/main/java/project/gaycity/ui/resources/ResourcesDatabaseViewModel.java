@@ -1,16 +1,16 @@
-package project.gaycity.ui.donate;
+package project.gaycity.ui.resources;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DonateViewModel extends ViewModel {
+public class ResourcesDatabaseViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DonateViewModel() {
+    public ResourcesDatabaseViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is donate fragment");
+        mText.setValue("This is resources database fragment");
     }
 
     public LiveData<String> getText() {

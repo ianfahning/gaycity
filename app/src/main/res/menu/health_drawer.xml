@@ -7,21 +7,17 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="@string/menu_home" />
+            android:title="Make an Appointment" />
 
         <item
             android:id="@+id/nav_health"
-            android:title="Health" />
+            android:title="Get Test Results" />
 
         <item
             android:id="@+id/nav_resources"
-            android:title="Resources" />
+            android:title="PrEP" />
         <item
             android:id="@+id/nav_getInvolved"
-            android:title="Get Involved" />
-        <item
-            android:id="@+id/nav_connect1"
-            android:title="Connect with Us" />
+            android:title="Health Care Enrollment" />
     </group>
-
 </menu>

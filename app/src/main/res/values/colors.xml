@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gayCityGreen">#FF7A9F2E</color>
     <color name="transparentWhite">#D9FFFFFF</color>
+    <color name="transparent">#00000000</color>
 </resources>

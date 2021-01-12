@@ -46,6 +46,15 @@ public class HomeFragment extends Fragment {
             }
         };
         donateButton.setOnClickListener(donateLink);
+        Button appointmentButton = (Button) getView().findViewById(R.id.button_appointment);
+        View.OnClickListener appointmentLink = new View.OnClickListener() {
+            public void onClick(View v) {
+                Uri uriUrl = Uri.parse("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
+            }
+        };
+        appointmentButton.setOnClickListener(appointmentLink);
     }
 
 }

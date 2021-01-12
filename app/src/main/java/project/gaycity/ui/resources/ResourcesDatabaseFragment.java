@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import project.gaycity.R;
 
-public class ResourcesFragment extends Fragment {
+public class ResourcesDatabaseFragment extends Fragment {
 
-    private ResourcesViewModel resourcesViewModel;
+    private ResourcesDatabaseViewModel resourcesDatabaseViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        resourcesViewModel =
-                new ViewModelProvider(this).get(ResourcesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_resources, container, false);
+        resourcesDatabaseViewModel =
+                new ViewModelProvider(this).get(ResourcesDatabaseViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_resources_database, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        resourcesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        resourcesDatabaseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

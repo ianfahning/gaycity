@@ -1,4 +1,4 @@
-package project.gaycity.ui.testing;
+package project.gaycity.ui.health;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import project.gaycity.R;
 
-public class TestingFragment extends Fragment {
+public class TestResultsFragment extends Fragment {
 
-    private project.gaycity.ui.testing.TestingViewModel testingViewModel;
+    private TestResultsViewModel testResultsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        testingViewModel =
-                new ViewModelProvider(this).get(project.gaycity.ui.testing.TestingViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_testing, container, false);
+        testResultsViewModel =
+                new ViewModelProvider(this).get(TestResultsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_test_results, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        testingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        testResultsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -12,20 +12,27 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_testing"
-        android:name="project.gaycity.ui.testing.TestingFragment"
-        android:label="Testing"
-        tools:layout="@layout/fragment_testing" />
+        android:id="@+id/nav_health"
+        android:name="project.gaycity.ui.health.PrepFragment"
+        android:label="Health"
+        tools:layout="@layout/fragment_health_care" />
 
     <fragment
         android:id="@+id/nav_resources"
-        android:name="project.gaycity.ui.resources.ResourcesFragment"
+        android:name="project.gaycity.ui.resources.ResourcesDatabaseFragment"
         android:label="Resources"
-        tools:layout="@layout/fragment_resources" />
+        tools:layout="@layout/fragment_resources_database" />
 
     <fragment
-        android:id="@+id/nav_donate"
-        android:name="project.gaycity.ui.donate.DonateFragment"
-        android:label="Donate"
-        tools:layout="@layout/fragment_resources" />
+        android:id="@+id/nav_getInvolved"
+        android:name="project.gaycity.ui.getInvolved.VolunteerFragment"
+        android:label="Get Involved"
+        tools:layout="@layout/fragment_volunteer" />
+    <fragment
+        android:id="@+id/nav_connect"
+        android:name="project.gaycity.ui.connect.ConnectFragment"
+        android:label="Connect with Us"
+        tools:layout="@layout/fragment_connect" />
+
+
 </navigation>

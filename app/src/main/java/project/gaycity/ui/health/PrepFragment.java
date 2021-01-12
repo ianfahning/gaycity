@@ -1,4 +1,4 @@
-package project.gaycity.ui.donate;
+package project.gaycity.ui.health;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import project.gaycity.R;
 
-public class DonateFragment extends Fragment {
+public class PrepFragment extends Fragment {
 
-    private project.gaycity.ui.donate.DonateViewModel donateViewModel;
+    private PrepViewModel prepViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        donateViewModel =
-                new ViewModelProvider(this).get(project.gaycity.ui.donate.DonateViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_testing, container, false);
+        prepViewModel =
+                new ViewModelProvider(this).get(PrepViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_prep, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        donateViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        prepViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
