@@ -16,20 +16,10 @@ import project.gaycity.R;
 
 public class ResourcesDatabaseFragment extends Fragment {
 
-    private ResourcesDatabaseViewModel resourcesDatabaseViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        resourcesDatabaseViewModel =
-                new ViewModelProvider(this).get(ResourcesDatabaseViewModel.class);
         View root = inflater.inflate(R.layout.fragment_resources_database, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        resourcesDatabaseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

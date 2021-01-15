@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/gayCityDarkGreen"
+        app:layout_constraintBottom_toTopOf="@+id/text_events"
+        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+
     <TextView
         android:id="@+id/text_gallery"
         android:layout_width="match_parent"
@@ -14,11 +24,27 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:gravity="center_horizontal"
+        android:text="Queer Community Conversations"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/outreach_description"
+        android:text="Queer and Trans folks are among the most impacted by COVID-19. We’re more likely to work in jobs that require us to be visible in the community and physically be present in the workplace.
+\n\nLearn about concerns affecting our community in Washington State during COVID-19, share queer-affirming resources, and create a space for LGBTQ voices to be heard."
+        android:layout_marginTop="16dp"
+        android:layout_width="325dp"
+        android:fontFamily="@font/rokkitt_regular"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,20 +16,11 @@ import project.gaycity.R;
 
 public class VolunteerFragment extends Fragment {
 
-    private VolunteerViewModel VolunteerViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        VolunteerViewModel =
-                new ViewModelProvider(this).get(VolunteerViewModel.class);
         View root = inflater.inflate(R.layout.fragment_volunteer, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        VolunteerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

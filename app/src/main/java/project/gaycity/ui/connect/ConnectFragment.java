@@ -16,20 +16,11 @@ import project.gaycity.R;
 
 public class ConnectFragment extends Fragment {
 
-    private ConnectViewModel connectViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        connectViewModel =
-                new ViewModelProvider(this).get(ConnectViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_resources_database, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        connectViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        View root = inflater.inflate(R.layout.fragment_connect, container, false);
         return root;
     }
 }

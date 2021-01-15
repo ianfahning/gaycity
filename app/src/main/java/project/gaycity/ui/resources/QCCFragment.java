@@ -16,20 +16,13 @@ import project.gaycity.R;
 
 public class QCCFragment extends Fragment {
 
-    private QCCViewModel qccViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        qccViewModel =
-                new ViewModelProvider(this).get(QCCViewModel.class);
         View root = inflater.inflate(R.layout.fragment_qcc, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        qccViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
+
+
 }

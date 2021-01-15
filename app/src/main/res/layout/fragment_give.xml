@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_give"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/gayCityDarkGreen"
+        app:layout_constraintBottom_toTopOf="@+id/text_events"
+        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -15,10 +27,55 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="Ways to Give"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ways_to_give_description"
+        android:text="Thank you for making a difference! Your vital support of Gay City ensures that people have a safe and welcoming space to gather and find meaningful connections.
+\n\nWhether it’s our vibrant arts programming, our resource center connecting people to vital services, the affirming and sensitive care of our wellness center team, or a cozy chair in our LGBTQ library, there’s something for everyone, and all of this happens because of donors like you.
+\n\nThank you for supporting our mission to promote self-determination, liberation, and joy in our communities. Because of you, Gay City can continue to be a place for LGBTQ communities to thrive."
+        android:layout_marginTop="16dp"
+        android:layout_width="325dp"
+        android:fontFamily="@font/rokkitt_regular"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_donate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Donate Now"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ways_to_give_description"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:dividerHeight="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_donate"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

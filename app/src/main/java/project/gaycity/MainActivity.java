@@ -2,17 +2,11 @@ package project.gaycity;
 
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,6 +20,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +31,7 @@ import project.gaycity.ui.connect.ConnectFragment;
 import project.gaycity.ui.getInvolved.GiveFragment;
 import project.gaycity.ui.getInvolved.VolunteerFragment;
 import project.gaycity.ui.getInvolved.VoteFragment;
+import project.gaycity.ui.header;
 import project.gaycity.ui.health.AppointmentFragment;
 import project.gaycity.ui.health.HealthCareFragment;
 import project.gaycity.ui.health.PrepFragment;
@@ -45,17 +42,15 @@ import project.gaycity.ui.resources.OutreachFragment;
 import project.gaycity.ui.resources.QCCFragment;
 import project.gaycity.ui.resources.ResourcesDatabaseFragment;
 import project.gaycity.ui.resources.TechnicalFragment;
+import project.gaycity.ui.subHeader;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
     private NavigationView navigationView;
-    private List<MenuModel> headerList = new ArrayList<>();
-    private HashMap<MenuModel, List<MenuModel>> childList = new HashMap<>();
+    private RecyclerView recyclerView;
     private FragmentManager fm;
     private DrawerLayout drawer;
-    ExpandableListAdapter expandableListAdapter;
-    ExpandableListView expandableListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,15 +62,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fm.beginTransaction().add(R.id.nav_host_fragment, new HomeFragment(), "new").commit();
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        expandableListView = findViewById(R.id.expandableListView);
-        populateMenu();
-        populateExpandableList();
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        recyclerView = this.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+        populateMenu();
     }
 
     @Override
@@ -100,93 +98,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void populateMenu(){
         //home
-        MenuModel menuModel = new MenuModel("Home", R.id.fragment_home,true,false);
-        headerList.add(menuModel);
-        childList.put(menuModel,null);
+        ArrayList<header> headers = new ArrayList<>();
+        ArrayList<subHeader> none = new ArrayList<>();
+        headers.add(new header("Home",none,false, R.id.fragment_home));
         //health
-        menuModel = new MenuModel("Health", -1, true,true);
-        headerList.add(menuModel);
-        List<MenuModel> childModelsList = new ArrayList<>();
-        MenuModel childModel = new MenuModel("Make an Appointment", R.id.fragment_appointment,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Get Test Results",R.id.fragment_test_results,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("PrEP", R.id.fragment_prep,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Health Care Enrollment", R.id.fragment_health_care,false,false);
-        childModelsList.add(childModel);
-        childList.put(menuModel,childModelsList);
-        //resources
-        menuModel = new MenuModel("Resources", -1, true,true);
-        headerList.add(menuModel);
-        childModelsList = new ArrayList<>();
-        childModel = new MenuModel("Resources Database", R.id.fragment_resources_database,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Queer Community Conversations",R.id.fragment_qcc,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("ORCA LIFT", R.id.fragment_orca,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Outreach", R.id.fragment_outreach,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Technical Assistance", R.id.fragment_technical,false,false);
-        childModelsList.add(childModel);
-        childList.put(menuModel,childModelsList);
-        //Get Involved
-        menuModel = new MenuModel("Get Involved", -1, true,true);
-        headerList.add(menuModel);
-        childModelsList = new ArrayList<>();
-        childModel = new MenuModel("Volunteer", R.id.fragment_volunteer,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Vote for Visibility",R.id.fragment_vote,false,false);
-        childModelsList.add(childModel);
-        childModel = new MenuModel("Ways to Give", R.id.fragment_give,false,false);
-        childModelsList.add(childModel);
-        childList.put(menuModel,childModelsList);
-        //contact us
-        menuModel = new MenuModel("Connect with Us", R.id.fragment_connect,true,false);
-        headerList.add(menuModel);
-        childList.put(menuModel,null);
+        ArrayList<subHeader> healthSubHeaders = new ArrayList<>();
+        healthSubHeaders.add(new subHeader("Make and Appointment",R.id.fragment_appointment,true));
+        healthSubHeaders.add(new subHeader("Get Test Results",R.id.fragment_test_results,true));
+        healthSubHeaders.add(new subHeader("Health Care Enrollment",R.id.fragment_health_care,true));
+        healthSubHeaders.add(new subHeader("PrEP",R.id.fragment_prep,true));
+        headers.add(new header("Health",healthSubHeaders,true, 0));
 
+        ArrayList<subHeader> resourcesSubHeaders = new ArrayList<>();
+        resourcesSubHeaders.add(new subHeader("Resource Database",R.id.fragment_resources_database,true));
+        resourcesSubHeaders.add(new subHeader("ORCA LIFT",R.id.fragment_orca,true));
+        resourcesSubHeaders.add(new subHeader("Outreach",R.id.fragment_outreach,true));
+        resourcesSubHeaders.add(new subHeader("Technical Training",R.id.fragment_technical,true));
+        resourcesSubHeaders.add(new subHeader("Queer Community Conversations",R.id.fragment_qcc,true));
+        headers.add(new header("Resources",resourcesSubHeaders,true, 0));
 
-    }
-    private void populateExpandableList() {
+        ArrayList<subHeader> getInvolvedSubHeaders = new ArrayList<>();
+        getInvolvedSubHeaders.add(new subHeader("Volunteer",R.id.fragment_volunteer,true));
+        getInvolvedSubHeaders.add(new subHeader("Vote For Visibility",R.id.fragment_vote,true));
+        getInvolvedSubHeaders.add(new subHeader("Ways to Give",R.id.fragment_give,true));
+        headers.add(new header("Get Involved",getInvolvedSubHeaders,true, 0));
 
-        expandableListAdapter = new ExpandableListAdapter(this, headerList, childList);
-        expandableListView.setAdapter(expandableListAdapter);
-
-        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                MenuModel menuItem = headerList.get(groupPosition);
-                if (menuItem.isGroup) {
-                    if (!menuItem.hasChildren) {
-                        fm.beginTransaction().replace(R.id.nav_host_fragment,findFragment(menuItem.view),null).commit();
-                        drawer.close();
-                    }
-                }
-
-                return false;
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-
-                if (childList.get(headerList.get(groupPosition)) != null) {
-                    MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-                    fm.beginTransaction().replace(R.id.nav_host_fragment,findFragment(model.view),null).commit();
-                    drawer.close();
-                }
-
-                return false;
-            }
-        });
+        headers.add(new header("Connect with Us",none,false, R.id.fragment_connect));
+        childAdapter adapter = new childAdapter(headers,fm,recyclerView,drawer);
+        recyclerView.setAdapter(adapter);
     }
 
-    private void switchFragments(){
-
-    }
 
     private Fragment findFragment(int num){
         switch(num){

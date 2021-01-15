@@ -24,14 +24,13 @@
             android:fitsSystemWindows="true"
             android:visibility="visible">
 
-            <ExpandableListView
-                android:id="@+id/expandableListView"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="33dp"
                 android:background="@android:color/transparent"
-                android:dividerHeight="0dp"
-                android:groupIndicator="@null" />
+                android:dividerHeight="0dp" />
 
     </com.google.android.material.navigation.NavigationView>
 

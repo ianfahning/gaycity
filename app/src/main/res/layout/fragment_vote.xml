@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/gayCityDarkGreen"
+        app:layout_constraintBottom_toTopOf="@+id/text_events"
+        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+
     <TextView
         android:id="@+id/text_gallery"
         android:layout_width="match_parent"
@@ -15,10 +25,26 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="Vote for Visibility"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/vote_description"
+        android:text="For the past 14 years, LGBTQ people have proportionately voted at lower rates than non-LGBTQ+ voters. It’s our elected officials who will approve education, employment, and health care bills that affect our communities. They will determine how to use the census data to influence the resources we need in our community.
+\n\nThis year, join us at the polls. Stand with your community and fight for an affirming, queer-inclusive world.
+\n\nLet’s vote and increase LGBTQ+ visibility at the polls."
+        android:layout_marginTop="16dp"
+        android:layout_width="325dp"
+        android:fontFamily="@font/rokkitt_regular"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 </androidx.constraintlayout.widget.ConstraintLayout>
