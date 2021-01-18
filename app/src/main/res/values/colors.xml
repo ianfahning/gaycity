@@ -11,4 +11,8 @@
     <color name="transparentWhite">#D9FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="gayCityDarkGreen">#FF3C4132</color>
+    <color name="facebook">#FF425f9C</color>
+    <color name="twitter">#FF1DA1F2</color>
+    <color name="youtube">#FFCC0000</color>
+    <color name="instagram">#FF3C4132</color>
 </resources>
