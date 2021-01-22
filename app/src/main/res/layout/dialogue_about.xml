@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_weight=".25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/gayCityDarkGreen"
+        app:layout_constraintBottom_toTopOf="@+id/text_events"
+        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+
+    <TextView
+        android:id="@+id/text_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="30sp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="About Gay City"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/vision"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Vision"
+        android:fontFamily="@font/rokkitt_bold"
+        android:textSize="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3" />
+
+    <TextView
+        android:id="@+id/vision_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gay City is the definitive hub for LGBTQ individuals seeking affirming and responsive resources, wellness, and community."
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vision" />
+
+    <TextView
+        android:id="@+id/mission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Mission"
+        android:fontFamily="@font/rokkitt_bold"
+        android:textSize="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vision_description" />
+
+    <TextView
+        android:id="@+id/mission_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gay City: Seattle’s LGBTQ Center cultivates access and connections to promote self-determination, liberation and joy in our communities."
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mission" />
+    <TextView
+        android:id="@+id/values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Values"
+        android:fontFamily="@font/rokkitt_bold"
+        android:textSize="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mission_description" />
+
+    <TextView
+        android:id="@+id/Advocacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advocacy"
+        android:fontFamily="@font/rokkitt_bold"
+        android:textSize="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/values" />
+
+        <TextView
+            android:id="@+id/mission_Advocacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gay City: Seattle’s LGBTQ Center cultivates access and connections to promote self-determination, liberation and joy in our communities."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Advocacy" />
+    <TextView
+        android:id="@+id/Accessibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accessibility"
+        android:fontFamily="@font/rokkitt_bold"
+        android:textSize="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mission_Advocacy"/>
+
+    <TextView
+        android:id="@+id/mission_Accessibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Gay City: Seattle’s LGBTQ Center cultivates access and connections to promote self-determination, liberation and joy in our communities."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Accessibility" />
+
+        <TextView
+            android:id="@+id/Intersectionality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intersectionality"
+            android:fontFamily="@font/rokkitt_bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Accessibility"/>
+
+        <TextView
+            android:id="@+id/mission_Intersectionality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="We recognize that our community members are multifaceted, with overlapping and intersecting identities. We seek to honor our interdependent identities in all our services and programming. We also recognize that LGBTQ communities face multiple and intersecting forms of structural oppression. We are committed to honoring those truths in all that we do."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Intersectionality" />
+
+        <TextView
+            android:id="@+id/Sex_and_Body_Positivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sex and Body Positivity"
+            android:fontFamily="@font/rokkitt_bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Intersectionality"/>
+
+        <TextView
+            android:id="@+id/mission_Sex_and_Body_Positivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gay City values all bodies and consensual sexuality. We defer judgment when people seek support or share their diverse stories and invest in people’s self-determination."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Sex_and_Body_Positivity" />
+        <TextView
+            android:id="@+id/Stewardship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stewardship"
+            android:fontFamily="@font/rokkitt_bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Sex_and_Body_Positivity"/>
+
+        <TextView
+            android:id="@+id/mission_Stewardship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gay City takes community seriously. We act in service of people’s daily needs, and towards our greater liberation, as they are not separate. We know the power of community and take great care in building it for today and generations to come."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Stewardship" />
+
+        <TextView
+            android:id="@+id/Transparency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transparency"
+            android:fontFamily="@font/rokkitt_bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Stewardship"/>
+
+        <TextView
+            android:id="@+id/mission_Transparency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gay City sees transparency being key in creating equitable outcomes and getting people what they need to be successful. We have established policies, procedures, and practices with the intent to be clear and open with the communities we serve."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Transparency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView4"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Transparency" />
+
+        <TextView
+            android:id="@+id/text_gallery2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="30sp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:text="Our History"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mission_Transparency"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="2020 marks Gay City’s 25th year of building resilience and joy in LGBTQ communities.
+\n\nIn 1995, a group of community activists launched Gay City with a bold vision of building a community stronger than HIV while centering queer voices. This mission evolved in the 2000s when the organization introduced its Wellness Center, Arts Programs, and established a physical space where all LGBTQ people could be themselves.
+\n\nToday, Gay City remains the leading HIV/STI tester in King County, home to several LGBTQ-affirming services, and provides access to hundreds of resources. The organization is also an active force in queer youth engagement and provides LGBTQ-centered trainings that address the needs of the most marginalized people within our community."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+
+        app:strokeWidth="3dp"/>
+</LinearLayout>

@@ -1,11 +1,15 @@
 package project.gaycity;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         fm = getSupportFragmentManager();
         fm.beginTransaction().add(R.id.nav_host_fragment, new HomeFragment(), "new").commit();
         drawer = findViewById(R.id.drawer_layout);
@@ -128,38 +133,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setAdapter(adapter);
     }
 
-
-    private Fragment findFragment(int num){
-        switch(num){
-            case R.id.fragment_home:
-                return new HomeFragment();
-            case R.id.fragment_appointment:
-                return new AppointmentFragment();
-            case R.id.fragment_test_results:
-                return new TestResultsFragment();
-            case R.id.fragment_prep:
-                return new PrepFragment();
-            case R.id.fragment_health_care:
-                return new HealthCareFragment();
-            case R.id.fragment_resources_database:
-                return new ResourcesDatabaseFragment();
-            case R.id.fragment_qcc:
-                return new QCCFragment();
-            case R.id.fragment_orca:
-                return new ORCAFragment();
-            case R.id.fragment_outreach:
-                return new OutreachFragment();
-            case R.id.fragment_technical:
-                return new TechnicalFragment();
-            case R.id.fragment_volunteer:
-                return new VolunteerFragment();
-            case R.id.fragment_vote:
-                return new VoteFragment();
-            case R.id.fragment_give:
-                return new GiveFragment();
-            case R.id.fragment_connect:
-                return new ConnectFragment();
-        }
-        return new HomeFragment();
-    }
 }

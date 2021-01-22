@@ -41,10 +41,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:textSize="17dp"
+        android:textSize="25dp"
         android:gravity="center"
-        android:fontFamily="@font/rokkitt_regular"
-        android:text="Connect with Us on all of our socials!"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="Social Media"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_gallery" />
@@ -52,14 +52,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_facebook"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Facebook"
         android:textAllCaps="false"
         android:textSize="25dp"
         android:textColor="@color/white"
-        android:gravity="center_vertical"
         android:backgroundTint="@color/facebook"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +70,7 @@
         app:strokeWidth="3dp"/>
 
     <ImageView
+        android:visibility="gone"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/facebook"
@@ -85,9 +85,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="twitter"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/white"
+        android:text="Twitter"
+        android:textSize="25dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/twitter"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,9 +104,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="youtube"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/white"
+        android:text="YouTube"
+        android:textSize="25dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/youtube"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,9 +123,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="youtube"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/white"
+        android:text="Instagram"
+        android:textSize="25dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/instagram"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,5 +137,27 @@
         app:strokeColor="@color/black"
         app:strokeWidth="3dp"/>
 
+    <TextView
+        android:id="@+id/text_contactus"
+        android:text="Contact Us"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:fontFamily="@font/rokkitt_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_instagram"/>
+
+    <TextView
+        android:text="Phone number: 206-860-6969\nResource Helpline: 206-323-LGBT\n
+24-Hour Crisis Line: 866-427-4747\n
+Email: info@gaycity.org"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contactus"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

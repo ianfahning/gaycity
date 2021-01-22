@@ -47,7 +47,7 @@ public class parentViewHolder extends GroupViewHolder {
         if(model.fragment != 0){
             View.OnClickListener changeFragment = new View.OnClickListener() {
                 public void onClick(View v) {
-                    fm.beginTransaction().replace(R.id.nav_host_fragment,findFragment(model.fragment),null).commit();
+                    fm.beginTransaction().setCustomAnimations(R.animator.fade_in, R.animator.fade_out).replace(R.id.nav_host_fragment,findFragment(model.fragment),null).commit();
                     drawer.close();
                 }
             };

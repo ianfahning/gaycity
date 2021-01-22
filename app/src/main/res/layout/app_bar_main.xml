@@ -7,17 +7,31 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:theme="@style/Theme.GayCity.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:contentInsetStart="0dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.GayCity.PopupOverlay" />
+            app:popupTheme="@style/Theme.GayCity.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/toolbar2"
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="left"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/logo_gaycity_lgbtqcenter_green" />
+
+        </androidx.appcompat.widget.Toolbar>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

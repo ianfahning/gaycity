@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -37,6 +38,16 @@ public class HomeFragment extends Fragment {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        Button aboutButton = (Button) view.findViewById(R.id.button_mission);
+        FragmentManager fm  = getFragmentManager();
+        View.OnClickListener dialogue = new View.OnClickListener() {
+            public void onClick(View v) {
+                aboutDialogue alertDialog = aboutDialogue.newInstance();
+                alertDialog.show(fm, "fragment_alert");
+            }
+        };
+        aboutButton.setOnClickListener(dialogue);
+        System.out.println("made it");
         Button donateButton = (Button) getView().findViewById(R.id.button_donate);
         View.OnClickListener donateLink = new View.OnClickListener() {
             public void onClick(View v) {
