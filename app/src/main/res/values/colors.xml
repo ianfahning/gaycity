@@ -15,4 +15,6 @@
     <color name="twitter">#FF1DA1F2</color>
     <color name="youtube">#FFA82400</color>
     <color name="instagram">#FFEA2C59</color>
+    <color name="gray">#FF858585</color>
+
 </resources>
