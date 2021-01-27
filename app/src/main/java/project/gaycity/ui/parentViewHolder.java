@@ -82,6 +82,10 @@ public class parentViewHolder extends GroupViewHolder {
             arrow.setAnimation(rotate);
     }
 
+    public void setTextColor(int textColor){
+        textView.setTextColor(textColor);
+    }
+
     private Fragment findFragment(int num){
         switch(num){
             case R.id.fragment_home:

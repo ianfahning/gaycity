@@ -33,6 +33,20 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_horizontal" />
 
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="#00000000"
+        android:src="@drawable/luis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -43,13 +57,16 @@
         android:text="Tuesday-Wednesday: 11:30 am to 7:00 p.m.\nFriday – 11:30 a.m. to 7:00 p.m.\nSaturday – 10:00 a.m. to 4:30 p.m."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+        app:layout_constraintTop_toBottomOf="@+id/imgView" />
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:textSize="17sp"
+        android:gravity="center"
         android:fontFamily="@font/rokkitt_regular"
         android:text="Gay City: Seattle’s LGBTQ Center offers confidential and anonymous HIV testing and STI screening. Testing includes Rapid HIV Testing (finger poke), HIV antibody testing, and screening for syphilis, chlamydia, gonorrhea, and Hep C."
         app:layout_constraintEnd_toEndOf="parent"

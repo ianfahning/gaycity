@@ -39,12 +39,13 @@
 
     <TextView
         android:id="@+id/ORCA_description"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textSize="17dp"
+        android:gravity="center"
         android:fontFamily="@font/rokkitt_regular"
         android:text="Get more out of your public transportation system today with ORCA LIFT, a reduced-fare transit program. Whether traveling to work, school, or the mall, you can save money starting today.\n\nKing County Navigators are available by phone 8 a.m. to 6 p.m. and through online registration.\n\nLoad an e-purse value on your card to pay for trips one at a time, or load a discounted monthly pass that lets you take unlimited trips for an entire month."
         app:layout_constraintEnd_toEndOf="parent"

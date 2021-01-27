@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="25dp"
-        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:textColor="@color/black"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:fontFamily="@font/rokkitt_bold"
         android:background="#00000000"/>
 

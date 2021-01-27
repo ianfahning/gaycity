@@ -42,7 +42,9 @@
 \n\nWhether it’s our vibrant arts programming, our resource center connecting people to vital services, the affirming and sensitive care of our wellness center team, or a cozy chair in our LGBTQ library, there’s something for everyone, and all of this happens because of donors like you.
 \n\nThank you for supporting our mission to promote self-determination, liberation, and joy in our communities. Because of you, Gay City can continue to be a place for LGBTQ communities to thrive."
         android:layout_marginTop="16dp"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:fontFamily="@font/rokkitt_regular"
         android:textSize="17sp"
         android:layout_height="wrap_content"

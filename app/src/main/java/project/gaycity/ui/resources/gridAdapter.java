@@ -50,17 +50,17 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
             String basicNeeds = resource.getString("basicNeeds");
             String website = resource.getString("website");
             if(Organization.equals("undefined")){
-                holder.website.setText("-");
+                holder.title.setText("-");
             }else{
                 holder.title.setText(shortenTitle(resource.getString("Organization")));
             }
             if(Communities.equals("undefined")){
-                holder.website.setText("-");
+                holder.communities.setText("-");
             }else{
                 holder.communities.setText(shortenTitle(resource.getString("Communities")));
             }
             if(basicNeeds.equals("undefined")){
-                holder.website.setText("-");
+                holder.basicNeeds.setText("-");
             }else{
                 holder.basicNeeds.setText(shortenTitle(resource.getString("basicNeeds")));
             }

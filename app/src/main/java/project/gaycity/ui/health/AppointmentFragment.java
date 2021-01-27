@@ -19,21 +19,10 @@ import project.gaycity.R;
 
 public class AppointmentFragment extends Fragment {
 
-    private AppointmentViewModel appointmentViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       // appointmentViewModel =
-                //new ViewModelProvider(this).get(AppointmentViewModel.class);
         View root = inflater.inflate(R.layout.fragment_appointment, container, false);
-        /*final TextView textView = root.findViewById(R.id.text_gallery);
-        appointmentViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
-
         return root;
     }
 

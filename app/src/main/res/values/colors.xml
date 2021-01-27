@@ -16,5 +16,6 @@
     <color name="youtube">#FFA82400</color>
     <color name="instagram">#FFEA2C59</color>
     <color name="gray">#FF858585</color>
+    <color name="defaultText">#FF808080</color>
 
 </resources>

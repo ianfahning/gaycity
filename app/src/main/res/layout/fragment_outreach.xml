@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_outreach"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    >
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView2"
         android:layout_width="match_parent"
@@ -34,21 +37,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/outreach_title"
-        android:text="Tableing, Testing and Speakers"
-        android:layout_marginTop="8dp"
-        android:layout_width="325dp"
-        android:fontFamily="@font/rokkitt_bold"
-        android:textSize="23sp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2" />
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
+        android:padding="16dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
@@ -56,17 +49,18 @@
         android:background="#00000000"
         android:src="@drawable/table_outreach"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outreach_title" />
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 
     <TextView
         android:id="@+id/outreach_description"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:fontFamily="@font/rokkitt_regular"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:gravity="center"
         android:text="Invite your local LGBTQ center to your community event. Gay City always seeks opportunities to connect LGBTQ+ communities to resources, provide HIV/STI testing and educate allies about the organization.\n\nThe Outreach/tabling team members require at least two-weeks notice prior to the event(s).\n\nTo request members from our outreach team to table at your upcoming event, please click the button below to complete the request form. After submitting the form, we will reach out to you within 10 business days with next steps."
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,3 +84,4 @@
         app:strokeColor="@color/black"
         app:strokeWidth="3dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

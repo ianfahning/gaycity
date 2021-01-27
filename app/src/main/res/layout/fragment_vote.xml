@@ -36,11 +36,14 @@
 
     <TextView
         android:id="@+id/vote_description"
+        android:gravity="center"
         android:text="For the past 14 years, LGBTQ people have proportionately voted at lower rates than non-LGBTQ+ voters. It’s our elected officials who will approve education, employment, and health care bills that affect our communities. They will determine how to use the census data to influence the resources we need in our community.
 \n\nThis year, join us at the polls. Stand with your community and fight for an affirming, queer-inclusive world.
 \n\nLet’s vote and increase LGBTQ+ visibility at the polls."
         android:layout_marginTop="16dp"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:fontFamily="@font/rokkitt_regular"
         android:textSize="17sp"
         android:layout_height="wrap_content"

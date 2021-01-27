@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import project.gaycity.R;
-import project.gaycity.childAdapter;
+import project.gaycity.expandableMenuAdapter;
 import project.gaycity.ui.header;
 import project.gaycity.ui.subHeader;
 
@@ -28,16 +28,7 @@ public class HealthCareFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       // HealthCareViewModel =
-            //    new ViewModelProvider(this).get(HealthCareViewModel.class);
         root = inflater.inflate(R.layout.fragment_health_care, container, false);
-       /* final TextView textView = root.findViewById(R.id.text_gallery);
-        HealthCareViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
         return root;
     }
 
@@ -52,12 +43,7 @@ public class HealthCareFragment extends Fragment {
         };
         appointmentButton.setOnClickListener(appointmentLink);
         recylcerView = root.findViewById(R.id.recyclerView);
-        recylcerView.setLayoutManager(new LinearLayoutManager(root.getContext()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
+        recylcerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         populateMenu();
     }
 
@@ -144,7 +130,7 @@ public class HealthCareFragment extends Fragment {
                 "\n\n" +
                 "Please note: If you end all health coverage (both your insurance plan and employer-provided health insurance) and don’t replace it, the government may require you to pay a fee.",0,false));
         headers.add(new header("Canceling a Plan",cancelSubHeaders,true,0));
-        childAdapter adapter = new childAdapter(headers,null,recylcerView, null);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,null,recylcerView, null);
         recylcerView.setAdapter(adapter);
     }
 

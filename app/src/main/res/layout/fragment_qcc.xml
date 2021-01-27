@@ -40,9 +40,12 @@
         android:text="Queer and Trans folks are among the most impacted by COVID-19. We’re more likely to work in jobs that require us to be visible in the community and physically be present in the workplace.
 \n\nLearn about concerns affecting our community in Washington State during COVID-19, share queer-affirming resources, and create a space for LGBTQ voices to be heard."
         android:layout_marginTop="16dp"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:fontFamily="@font/rokkitt_regular"
         android:textSize="17sp"
+        android:gravity="center"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

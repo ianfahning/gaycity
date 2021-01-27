@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import project.gaycity.R;
-import project.gaycity.childAdapter;
+import project.gaycity.expandableMenuAdapter;
 import project.gaycity.ui.header;
 import project.gaycity.ui.subHeader;
 
@@ -44,12 +44,7 @@ public class GiveFragment extends Fragment {
         };
         donateButton.setOnClickListener(donateLink);
         recyclerView = root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         populateMenu();
     }
 
@@ -90,7 +85,7 @@ public class GiveFragment extends Fragment {
         krogerSubHeaders.add(new subHeader("Kroger and its family of stores, like Fred Meyer, donate more than $2 million per year to non-profits across the Pacific Northwest with recommendations from their customers. Sign up for the Community Rewards program and link your Fred Meyer Rewards Card to Gay City Health Project (QI274) at fredmeyer.com/communityrewards. Every time you shop, Fred Meyer will donate a portion of its proceeds back to Seattle’s only LGBTQ center.",0,false));
         headers.add(new header("Kroger Co. Family of Stores (Fred Meyer/QFC/Fry’s)",krogerSubHeaders,true,0));
 
-        childAdapter adapter = new childAdapter(headers,null,recyclerView, null);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,null,recyclerView, null);
         recyclerView.setAdapter(adapter);
     }
 

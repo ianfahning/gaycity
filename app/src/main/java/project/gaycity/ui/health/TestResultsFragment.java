@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import project.gaycity.R;
-import project.gaycity.childAdapter;
+import project.gaycity.expandableMenuAdapter;
 import project.gaycity.ui.header;
 import project.gaycity.ui.subHeader;
 
@@ -44,12 +44,7 @@ public class TestResultsFragment extends Fragment {
             }
         };
         recylcerView = root.findViewById(R.id.recyclerView);
-        recylcerView.setLayoutManager(new LinearLayoutManager(root.getContext()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
+        recylcerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         populateMenu();
     }
 
@@ -141,7 +136,7 @@ public class TestResultsFragment extends Fragment {
         ArrayList<subHeader> questionsSubHeaders = new ArrayList<>();
         questionsSubHeaders.add(new subHeader("If you have additional questions about the Patient Portal/results, please contact us at 206-860-6969 x718 or email us at testing@gaycity.org.",0,false));
         headers.add(new header("Additional Questions",questionsSubHeaders,true,0));
-        childAdapter adapter = new childAdapter(headers,null,recylcerView, null);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,null,recylcerView, null);
         recylcerView.setAdapter(adapter);
     }
 

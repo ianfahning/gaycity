@@ -1,16 +1,8 @@
 package project.gaycity;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,24 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-import project.gaycity.ui.connect.ConnectFragment;
-import project.gaycity.ui.getInvolved.GiveFragment;
-import project.gaycity.ui.getInvolved.VolunteerFragment;
-import project.gaycity.ui.getInvolved.VoteFragment;
 import project.gaycity.ui.header;
-import project.gaycity.ui.health.AppointmentFragment;
-import project.gaycity.ui.health.HealthCareFragment;
-import project.gaycity.ui.health.PrepFragment;
-import project.gaycity.ui.health.TestResultsFragment;
 import project.gaycity.ui.home.HomeFragment;
-import project.gaycity.ui.resources.ORCAFragment;
-import project.gaycity.ui.resources.OutreachFragment;
-import project.gaycity.ui.resources.QCCFragment;
-import project.gaycity.ui.resources.ResourcesDatabaseFragment;
-import project.gaycity.ui.resources.TechnicalFragment;
 import project.gaycity.ui.subHeader;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -129,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headers.add(new header("Get Involved",getInvolvedSubHeaders,true, 0));
 
         headers.add(new header("Connect with Us",none,false, R.id.fragment_connect));
-        childAdapter adapter = new childAdapter(headers,fm,recyclerView,drawer);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,fm,recyclerView,drawer);
         recyclerView.setAdapter(adapter);
     }
 

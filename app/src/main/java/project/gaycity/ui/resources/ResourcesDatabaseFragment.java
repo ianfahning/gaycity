@@ -46,34 +46,19 @@ public class ResourcesDatabaseFragment extends Fragment {
 
         @Override
         protected JSONObject doInBackground(Void... voids) {
-            HttpURLConnection urlConnection = null;
+
             JSONObject json = null;
             URL url = null;
             try {
-                url = new URL("https://gay-city-server.herokuapp.com/");
-                urlConnection = (HttpURLConnection) url.openConnection();
+                String resourceString = "";
+                int i = 0;
+              while(resourceString.length() < 15){
+                  resourceString = getResources();
+                  i++;
+              }
+                System.out.println(i);
 
-                urlConnection.setRequestMethod("GET");
-                urlConnection.setReadTimeout(10000 /* milliseconds */);
-                urlConnection.setConnectTimeout(15000 /* milliseconds */);
-
-                urlConnection.setDoOutput(true);
-
-                urlConnection.connect();
-
-                BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
-
-                char[] buffer = new char[1024];
-
-
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = br.readLine()) != null) {
-                    sb.append(line+"\n");
-                }
-                br.close();
-
-                json = new JSONObject(sb.toString());
+                json = new JSONObject(resourceString);
 
 
             } catch (Exception e) {
@@ -86,8 +71,10 @@ public class ResourcesDatabaseFragment extends Fragment {
         protected void onPostExecute(JSONObject result) {
             if(result != null){
                 try {
+                    root.findViewById(R.id.loading).setVisibility(View.GONE);
                     JSONArray resources = (JSONArray) result.get("resources");
                     RecyclerView recyclerView = root.findViewById(R.id.resources);
+                    recyclerView.setVisibility(View.VISIBLE);
                     int numberOfColumns = 2;
                     recyclerView.setLayoutManager(new GridLayoutManager(root.getContext(), numberOfColumns));
                     gridAdapter adapter = new gridAdapter(root.getContext(), resources, getFragmentManager());
@@ -96,6 +83,38 @@ public class ResourcesDatabaseFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
+        }
+
+        private String getResources(){
+            StringBuilder sb = null;
+            try {
+            URL url = new URL("https://gay-city-server.herokuapp.com/");
+
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setReadTimeout(10000 /* milliseconds */);
+            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+
+            urlConnection.setDoOutput(true);
+
+            urlConnection.connect();
+
+            BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
+
+            char[] buffer = new char[1024];
+
+
+            sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line+"\n");
+            }
+            br.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return sb.toString();
         }
     }
 }

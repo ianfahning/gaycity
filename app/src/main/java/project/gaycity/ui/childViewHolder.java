@@ -37,8 +37,10 @@ public class childViewHolder extends ChildViewHolder {
 
     public void bind(subHeader model, FragmentManager fm, DrawerLayout drawer){
         textView.setText(model.name);
+        imageView.setVisibility(View.GONE);
         if(!model.isFragment && model.imageOrFragment != 0){
             imageView.setImageResource(model.imageOrFragment);
+            imageView.setVisibility(View.VISIBLE);
         }else if(model.isFragment){
             View.OnClickListener changeFragment = new View.OnClickListener() {
                 public void onClick(View v) {
@@ -49,6 +51,10 @@ public class childViewHolder extends ChildViewHolder {
             textView.setOnClickListener(changeFragment);
         }
 
+    }
+
+    public void setTextColor(int textColor){
+        textView.setTextColor(textColor);
     }
 
     private Fragment findFragment(int num){

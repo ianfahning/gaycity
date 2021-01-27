@@ -38,10 +38,13 @@
 
     <TextView
         android:id="@+id/prep_info"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:text="One pill a day is all it takes to reduce your risk of HIV.\n\nOur Gay City PrEP team can help you determine whether Pre-Exposure Prophylaxis (PrEP) is right for you.\n\nWe can help you find access to PrEP (whether insured or uninsured) and assistance to pay for the medication, or provide you with tips on how to talk about PrEP with your doctor.\n\nThe Gay city PrEP team is here to help and answer all questions about PrEP"
         android:textSize="17dp"
+        android:gravity="center"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,8 +88,10 @@
 
     <TextView
         android:id="@+id/text_gallery3"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/rokkitt_bold"
         android:gravity="center_horizontal"
@@ -115,7 +120,9 @@
 
     <TextView
         android:id="@+id/text_gallery5"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/rokkitt_bold"
