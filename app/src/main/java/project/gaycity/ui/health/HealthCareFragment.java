@@ -3,10 +3,15 @@ package project.gaycity.ui.health;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +29,10 @@ import project.gaycity.ui.subHeader;
 public class HealthCareFragment extends Fragment {
 
     RecyclerView recylcerView;
+    private ScrollView scroll;
+    private boolean hasApeared = true;
+    private boolean doScroll = true;
+    private double position = 0;
     View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -42,9 +51,55 @@ public class HealthCareFragment extends Fragment {
             }
         };
         appointmentButton.setOnClickListener(appointmentLink);
+        scroll = (ScrollView) root.findViewById(R.id.scroll);
         recylcerView = root.findViewById(R.id.recyclerView);
         recylcerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         populateMenu();
+        ImageView topIcon = (ImageView) getView().findViewById(R.id.image_back_to_top);
+        View.OnClickListener topLink = new View.OnClickListener() {
+            public void onClick(View v) {
+                doScroll = false; //stop the onScroll from making button visible
+                new Handler().postDelayed(new Runnable() { //turn on onScroll again after scrolled to top
+                    @Override
+                    public void run() {
+                        doScroll = true;
+                    }
+                }, 1000);
+                scroll.smoothScrollTo(0,0);
+                recylcerView.smoothScrollToPosition(0);
+                Animation fadeOut = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_out);
+                topIcon.startAnimation(fadeOut);
+                topIcon.setVisibility(View.INVISIBLE);
+                position = 0;
+            }
+        };
+        topIcon.setOnClickListener(topLink);
+        recylcerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (doScroll) {
+                    position += dy;
+                    if (dy < -2 && !hasApeared && topIcon.getVisibility() != View.VISIBLE) {
+                        Animation fadeIn = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_in);
+                        topIcon.startAnimation(fadeIn);
+                        topIcon.setVisibility(View.VISIBLE);
+                        hasApeared = true;
+                    }
+                    if ((dy > 2 && !hasApeared && topIcon.getVisibility() != View.INVISIBLE) || (position <= 0 && topIcon.getVisibility() != View.INVISIBLE)) {
+                        Animation fadeOut = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_out);
+                        topIcon.startAnimation(fadeOut);
+                        topIcon.setVisibility(View.INVISIBLE);
+                        hasApeared = true;
+                    }
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                hasApeared = false;
+            }
+        });
     }
 
     public void populateMenu(){

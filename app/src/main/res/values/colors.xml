@@ -17,5 +17,7 @@
     <color name="instagram">#FFEA2C59</color>
     <color name="gray">#FF858585</color>
     <color name="defaultText">#FF808080</color>
+    <color name="gayCityLightGreen">#FFA4BE6F</color>
+    <color name="covidYellow">#FFC9B23B</color>
 
 </resources>

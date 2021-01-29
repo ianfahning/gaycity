@@ -34,6 +34,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/covidYellow"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/covid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="15sp"
+        android:fontFamily="@font/rokkitt_bold"
+        android:text="In-person volunteering postponed during current phase of COVID-19 outbreak."
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView3" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="#00000000"
+        android:src="@drawable/library_volunteer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3" />
+
     <TextView
         android:id="@+id/volunteer_description"
         android:text="At Gay City, your volunteer experience has real, tangible results. Whether helping to produce Gay City special events or assisting in one of our office spaces, you’ll see the impact live and in-person. Use your personal experiences to create programs and determine how they will help support the community.
@@ -49,5 +89,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+        app:layout_constraintTop_toBottomOf="@+id/imgView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

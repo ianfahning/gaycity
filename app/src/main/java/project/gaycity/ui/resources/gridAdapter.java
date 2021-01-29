@@ -19,6 +19,7 @@ import project.gaycity.ui.home.aboutDialogue;
 
 public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
 
+    private JSONArray mDataCopy;
     private JSONArray mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
@@ -28,6 +29,7 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
     gridAdapter(Context context, JSONArray data,FragmentManager fm) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.mDataCopy = data;
         this.fm = fm;
     }
 
@@ -37,6 +39,31 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.grid_resource_layout, parent, false);
         return new ViewHolder(view);
+    }
+
+    public void filter(String query) {
+        mData = new JSONArray();
+        if(query.isEmpty()){
+            mData = mDataCopy;
+        } else{
+            query = query.toLowerCase();
+            for(int i = 0; i < mDataCopy.length(); i++){
+                try {
+                    if(((JSONObject)mDataCopy.get(i)).getString("Organization").toLowerCase().contains(query)){
+                        mData.put(((JSONObject)mDataCopy.get(i)));
+                    }
+                    if(((JSONObject)mDataCopy.get(i)).getString("Communities").toLowerCase().contains(query)){
+                        mData.put(((JSONObject)mDataCopy.get(i)));
+                    }
+                    if(((JSONObject)mDataCopy.get(i)).getString("basicNeeds").toLowerCase().contains(query)){
+                        mData.put(((JSONObject)mDataCopy.get(i)));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     // binds the data to the TextView in each cell
@@ -137,4 +164,5 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
 }

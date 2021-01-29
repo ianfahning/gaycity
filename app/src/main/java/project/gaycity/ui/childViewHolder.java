@@ -44,7 +44,7 @@ public class childViewHolder extends ChildViewHolder {
         }else if(model.isFragment){
             View.OnClickListener changeFragment = new View.OnClickListener() {
                 public void onClick(View v) {
-                    fm.beginTransaction().setCustomAnimations(R.animator.fade_in, R.animator.fade_out).replace(R.id.nav_host_fragment,findFragment(model.imageOrFragment),null).commit();
+                    fm.beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.nav_host_fragment,findFragment(model.imageOrFragment),null).commit();
                     drawer.close();
                 }
             };

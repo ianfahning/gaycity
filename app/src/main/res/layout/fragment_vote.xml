@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_vote"
@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView2"
         android:layout_width="match_parent"
@@ -50,4 +53,142 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register to Vote"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vote_description"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ballot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request Absentee Ballot"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_register"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Address"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_ballot"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_accessible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accessible Voting"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:fontFamily="@font/rokkitt_regular"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_address"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="match_parent"
+        android:layout_height="475dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/gayCityLightGreen"
+        app:layout_constraintBottom_toTopOf="@+id/text_events"
+        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:padding="16dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="#00000000"
+            android:src="@drawable/vote"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
+
+        <TextView
+            android:id="@+id/election_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="10 Ways to Prep for an Election"
+            android:textSize="25dp"
+            android:fontFamily="@font/rokkitt_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView" />
+
+        <TextView
+            android:id="@+id/election_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="We’re consistently being hit with misinformation and voter suppression tricks. Time to counter it with our own tactic – knowledge – with 10 ways to prep before visiting the polls or requesting your ballot."
+            android:textSize="17dp"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:fontFamily="@font/rokkitt_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn More"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:fontFamily="@font/rokkitt_regular"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_description"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="0dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
