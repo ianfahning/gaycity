@@ -112,7 +112,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="70dp"
-        android:src="@drawable/back_to_top_arrow"
+        android:src="@mipmap/top_arrow"
         android:visibility="invisible"
         android:layout_gravity="top|center"/>
 </FrameLayout>

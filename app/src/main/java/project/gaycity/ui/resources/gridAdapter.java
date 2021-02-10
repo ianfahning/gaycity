@@ -33,7 +33,6 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
         this.fm = fm;
     }
 
-    // inflates the cell layout from xml when needed
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -79,22 +78,22 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
             if(Organization.equals("undefined")){
                 holder.title.setText("-");
             }else{
-                holder.title.setText(shortenTitle(resource.getString("Organization")));
+                holder.title.setText(shortenTitle(Organization));
             }
             if(Communities.equals("undefined")){
                 holder.communities.setText("-");
             }else{
-                holder.communities.setText(shortenTitle(resource.getString("Communities")));
+                holder.communities.setText(shortenTitle(Communities));
             }
             if(basicNeeds.equals("undefined")){
                 holder.basicNeeds.setText("-");
             }else{
-                holder.basicNeeds.setText(shortenTitle(resource.getString("basicNeeds")));
+                holder.basicNeeds.setText(shortenTitle(basicNeeds));
             }
             if(website.equals("undefined")){
                 holder.website.setText("-");
             }else{
-                holder.website.setText(shortenTitle(resource.getString("website")));
+                holder.website.setText(shortenTitle(website));
             }
         } catch (JSONException e) {
             e.printStackTrace();

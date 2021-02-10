@@ -19,5 +19,6 @@
     <color name="defaultText">#FF808080</color>
     <color name="gayCityLightGreen">#FFA4BE6F</color>
     <color name="covidYellow">#FFC9B23B</color>
+    <color name="offWhite">#FFEDEDED</color>
 
 </resources>

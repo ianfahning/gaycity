@@ -62,19 +62,8 @@ public class ResourcesDatabaseFragment extends Fragment {
         protected JSONObject doInBackground(Void... voids) {
 
             JSONObject json = null;
-            URL url = null;
             try {
-                String resourceString = "";
-                int i = 0;
-              while(resourceString.length() < 15){
-                  resourceString = getResources();
-                  i++;
-              }
-                System.out.println(i);
-
-                json = new JSONObject(resourceString);
-
-
+                json = new JSONObject(getResources());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -158,6 +147,9 @@ public class ResourcesDatabaseFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }else{
+                root.findViewById(R.id.loading).setVisibility(View.GONE);
+                root.findViewById(R.id.resource_error).setVisibility(View.VISIBLE);
             }
         }
 

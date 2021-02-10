@@ -151,13 +151,80 @@
         app:layout_constraintTop_toBottomOf="@+id/button_instagram"/>
 
     <TextView
-        android:text="Phone number: 206-860-6969\nResource Helpline: 206-323-LGBT\n
-24-Hour Crisis Line: 866-427-4747\n
-Email: info@gaycity.org"
+        android:id="@+id/text_phone_title"
+        android:text="Phone"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:fontFamily="@font/rokkitt_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contactus"/>
+    <TextView
+        android:id="@+id/phone"
+        android:text="206-860-6969"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_contactus"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_phone_title"/>
+    <TextView
+        android:id="@+id/text_resource_title"
+        android:text="Resource Helpline"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:fontFamily="@font/rokkitt_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone"/>
+    <TextView
+        android:id="@+id/resource_helpline"
+        android:text="206-323-LGBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_resource_title"/>
+    <TextView
+        android:id="@+id/text_crisis_title"
+        android:text="24-Hour Crisis Line"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:fontFamily="@font/rokkitt_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resource_helpline"/>
+    <TextView
+        android:id="@+id/crisis"
+        android:text="866-427-4747"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_crisis_title"/>
+    <TextView
+        android:id="@+id/text_email_title"
+        android:text="Email"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:fontFamily="@font/rokkitt_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crisis"/>
+    <TextView
+        android:id="@+id/email"
+        android:text="info@gaycity.org"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_email_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
