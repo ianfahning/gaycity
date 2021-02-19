@@ -168,7 +168,7 @@ public class ResourcesDatabaseFragment extends Fragment {
 
             urlConnection.connect();
 
-            BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
 
             char[] buffer = new char[1024];
 

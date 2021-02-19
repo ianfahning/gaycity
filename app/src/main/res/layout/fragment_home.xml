@@ -139,6 +139,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_mission"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_no_events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_horizontal"
+            android:text="There are currently no events"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="@font/rokkitt_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_events"/>
+        <ProgressBar
+            android:id="@+id/loading"
+            android:indeterminateDrawable="@drawable/progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:indeterminate="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_events"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventRecyclerView"

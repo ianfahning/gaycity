@@ -1,4 +1,4 @@
-package project.gaycity.ui.home;
+package project.gaycity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,8 +14,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import project.gaycity.R;
-import project.gaycity.ui.resources.resourceDialogue;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> {
 
@@ -23,12 +23,38 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private FragmentManager fm;
+    private ArrayList<String> JSONkeys = new ArrayList<>();
 
     // data is passed into the constructor
-    eventAdapter(Context context, JSONArray data, FragmentManager fm) {
+    public eventAdapter(Context context, JSONObject data, FragmentManager fm) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
         this.fm = fm;
+        if(data == null){
+            try {
+                this.mData = new JSONArray("[]");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }else{
+            //events are organized in an array of events for each date, this takes all events on every date
+            //and puts them into a single array
+            mData = new JSONArray();
+            Iterator<String> keys = data.keys();
+            while(keys.hasNext()) {
+                String key = keys.next();
+                try {
+                    JSONArray day = (JSONArray) data.get(key);
+                    for(int i = 0; i < day.length(); i++){
+                        mData.put(day.get(i));
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     @Override
@@ -43,13 +69,17 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
-            JSONObject event = ((JSONObject)mData.get(position));
+
+            JSONObject event = (JSONObject) mData.get(position);
             holder.addEvent(event);
-            String title = event.getString("title");
-            String startDate = event.getString("startDate");
-            String startTime = event.getString("startTime");
+            JSONObject data = ((JSONObject)event.get("data"));
+            JSONObject date = ((JSONObject)event.get("date"));
+            String title = data.getString("title");
+            String startDate = ((JSONObject)date.get("start")).getString("date");
+            String startTime = ((JSONObject)data.get("time")).getString("start");
+            String endTime = ((JSONObject)data.get("time")).getString("end");
             holder.title.setText(title);
-            holder.date.setText(startDate + " " + startTime);
+            holder.date.setText(startDate + "  " + startTime + "-" + endTime);
         } catch (JSONException e) {
             e.printStackTrace();
         }

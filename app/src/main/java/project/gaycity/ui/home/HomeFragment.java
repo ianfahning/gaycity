@@ -4,28 +4,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,8 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import project.gaycity.R;
-import project.gaycity.ui.resources.ResourcesDatabaseFragment;
-import project.gaycity.ui.resources.gridAdapter;
+import project.gaycity.eventAdapter;
 
 public class HomeFragment extends Fragment {
 
@@ -45,7 +37,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
         new getEvents().execute();
         return root;
     }
@@ -88,6 +79,7 @@ public class HomeFragment extends Fragment {
             JSONObject json = null;
             try {
                 json = new JSONObject(getEvents());
+                System.out.println(json);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -96,14 +88,18 @@ public class HomeFragment extends Fragment {
 
         @Override
         protected void onPostExecute(JSONObject result) {
-            JSONArray events = null;
+            JSONObject events = null;
             try {
-                events = (JSONArray) result.get("Events");
+                events = (JSONObject) result.get("content_json");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            root.findViewById(R.id.loading).setVisibility(View.GONE);
             RecyclerView recyclerView = root.findViewById(R.id.eventRecyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+            if(events == null){
+                root.findViewById(R.id.text_no_events).setVisibility(View.VISIBLE);
+            }
             eventAdapter adapter = new eventAdapter(root.getContext(), events, getFragmentManager());
             recyclerView.setAdapter(adapter);
             Animation fadeIn = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_in);
@@ -113,9 +109,36 @@ public class HomeFragment extends Fragment {
         }
 
         private String getEvents(){
-            //when events are added this function will bve filled out, for now it just returns a set string
-            String json = "{\"Events\":[{\"title\": \"neat event\", \"startDate\": \"February 17\",\"startTime\": \"5:00 PM\"},{\"title\": \"QCC: Using Self-Determination and Peer-Led Advocacy to Improve Health Equity Outcomes for BIPOC LGTBQ Youth\", \"startDate\": \"February 17\",\"startTime\": \"5:00 PM\"}]}";
-            return json;
+            StringBuilder sb = null;
+            try {
+                URL url = new URL("https://www.gaycity.org/wp-json/mecexternal/v1/calendar/12175");
+
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setReadTimeout(10000 /* milliseconds */);
+                urlConnection.setConnectTimeout(15000 /* milliseconds */);
+
+                urlConnection.setDoOutput(true);
+
+                urlConnection.connect();
+
+                BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
+
+                char[] buffer = new char[1024];
+
+
+                sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return sb.toString();
+
         }
     }
 
