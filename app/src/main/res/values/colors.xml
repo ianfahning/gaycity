@@ -8,7 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gayCityGreen">#FF7A9F2E</color>
-    <color name="transparentWhite">#D9FFFFFF</color>
+    <color name="semiTransparentWhite">#D9FFFFFF</color>
+    <color name="veryTransparentWhite">#33FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="gayCityDarkGreen">#FF3C4132</color>
     <color name="facebook">#FF425f9C</color>

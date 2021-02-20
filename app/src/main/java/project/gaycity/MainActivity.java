@@ -1,12 +1,18 @@
 package project.gaycity;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
@@ -19,7 +25,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 
 import project.gaycity.ui.header;
 import project.gaycity.ui.home.HomeFragment;
@@ -56,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         populateMenu();
+        new getPopup().execute();
     }
 
     @Override
@@ -108,6 +127,86 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headers.add(new header("Connect with Us",none,false, R.id.fragment_connect));
         expandableMenuAdapter adapter = new expandableMenuAdapter(headers,fm,recyclerView,drawer);
         recyclerView.setAdapter(adapter);
+    }
+
+
+    private class getPopup extends AsyncTask<Void, Void, JSONObject> {
+
+        @Override
+        protected JSONObject doInBackground(Void... voids) {
+
+            JSONObject json = null;
+            try {
+                json = new JSONObject(getPopup());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return json;
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected void onPostExecute(JSONObject result) {
+            JSONObject popup = null;
+            try {
+                popup = (JSONObject) result.get("content_json");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Iterator<String> keys = popup.keys();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+            String currentDate = dtf.format(now);
+            boolean popupFound = false;
+            while(keys.hasNext() && !popupFound){
+                String key = keys.next();
+                if(key.equals(currentDate)){
+                    popupFound = true;
+                }
+            }
+            if(popupFound){
+                popupDialogue popupDialog = null;
+                try {
+                    popupDialog = popupDialogue.newInstance((JSONObject) ((JSONArray)popup.get(currentDate)).get(0),fm);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                popupDialog.show(fm, "fragment_alert");
+            }
+        }
+
+        private String getPopup(){
+            StringBuilder sb = null;
+            try {
+                URL url = new URL("https://www.gaycity.org/wp-json/mecexternal/v1/calendar/12426");
+
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setReadTimeout(10000 /* milliseconds */);
+                urlConnection.setConnectTimeout(15000 /* milliseconds */);
+
+                urlConnection.setDoOutput(true);
+
+                urlConnection.connect();
+
+                BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
+
+                char[] buffer = new char[1024];
+
+
+                sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return sb.toString();
+
+        }
     }
 
 }

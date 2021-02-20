@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment {
             JSONObject json = null;
             try {
                 json = new JSONObject(getEvents());
-                System.out.println(json);
             } catch (Exception e) {
                 e.printStackTrace();
             }
