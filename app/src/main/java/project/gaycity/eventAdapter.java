@@ -147,7 +147,6 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
 
     private String formatDate(String date){
         int month = Integer.parseInt(date.substring(5,7));
-        System.out.println(date.substring(5,7));
         String monthName = "";
         switch(month){
             case 1:

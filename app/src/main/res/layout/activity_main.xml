@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:background="@color/transparentWhite"
+            android:background="@color/semiTransparentWhite"
             android:fitsSystemWindows="true"
             android:visibility="visible">
 

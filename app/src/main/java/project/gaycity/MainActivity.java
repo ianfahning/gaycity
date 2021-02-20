@@ -33,6 +33,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -42,6 +43,8 @@ import java.util.Iterator;
 import project.gaycity.ui.header;
 import project.gaycity.ui.home.HomeFragment;
 import project.gaycity.ui.subHeader;
+
+import static java.text.DateFormat.getDateTimeInstance;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -144,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return json;
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         protected void onPostExecute(JSONObject result) {
             JSONObject popup = null;
@@ -154,9 +156,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 e.printStackTrace();
             }
             Iterator<String> keys = popup.keys();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDateTime now = LocalDateTime.now();
-            String currentDate = dtf.format(now);
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String currentDate = formatter.format(date);
+            System.out.println(currentDate);
             boolean popupFound = false;
             while(keys.hasNext() && !popupFound){
                 String key = keys.next();
