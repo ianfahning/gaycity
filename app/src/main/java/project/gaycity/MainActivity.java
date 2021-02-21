@@ -33,6 +33,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -156,21 +157,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 e.printStackTrace();
             }
             Iterator<String> keys = popup.keys();
-            Date date = new Date();
+            Date currentDate = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            String currentDate = formatter.format(date);
             System.out.println(currentDate);
             boolean popupFound = false;
+            Date eventStartDate = null;
             while(keys.hasNext() && !popupFound){
                 String key = keys.next();
-                if(key.equals(currentDate)){
-                    popupFound = true;
+                try {
+                    eventStartDate = formatter.parse(key);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if(eventStartDate.before(currentDate)){
+                    Date eventEndDate = null;
+                    try {
+                        eventEndDate = formatter.parse(((JSONObject)((JSONObject)((JSONObject)((JSONArray)popup.get(key)).get(0)).get("date")).get("end")).getString("date"));
+                    } catch (JSONException | ParseException e) {
+                        e.printStackTrace();
+                    }
+                    if(eventEndDate.after(currentDate)){
+                        popupFound = true;
+                    }
                 }
             }
             if(popupFound){
                 popupDialogue popupDialog = null;
                 try {
-                    popupDialog = popupDialogue.newInstance((JSONObject) ((JSONArray)popup.get(currentDate)).get(0),fm);
+                    popupDialog = popupDialogue.newInstance((JSONObject) ((JSONArray)popup.get(formatter.format(eventStartDate))).get(0),fm);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
