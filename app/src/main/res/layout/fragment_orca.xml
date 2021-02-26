@@ -15,10 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -31,26 +30,27 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="ORCA LIFT"
+        android:layout_marginLeft="8dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/orca_lift"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ORCA_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:textSize="17dp"
-        android:gravity="center"
-        android:fontFamily="@font/rokkitt_regular"
-        android:text="Get more out of your public transportation system today with ORCA LIFT, a reduced-fare transit program. Whether traveling to work, school, or the mall, you can save money starting today.\n\nKing County Navigators are available by phone 8 a.m. to 6 p.m. and through online registration.\n\nLoad an e-purse value on your card to pay for trips one at a time, or load a discounted monthly pass that lets you take unlimited trips for an entire month."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_gallery" />
+        <TextView
+            android:id="@+id/ORCA_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/orca_lift_description"
+            android:gravity="center"
+            android:fontFamily="@font/rokkitt_regular"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gallery" />
 
     <TextView
         android:id="@+id/ORCA_LIFT_cards_title"
@@ -59,7 +59,7 @@
         android:layout_marginTop="16dp"
         android:textSize="23sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Where do ORCA LIFT cards work?"
+        android:text="@string/where_do_orca_cards_work"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
         android:paddingLeft="16dp"
         android:textSize="17sp"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="• Metro Transit buses\n• Community Transit buses\n• Everett Transit buses\n• Kitsap Transit buses\n• Sound Transit Regional Express buses\n• Sound Transit Link light rail\n• Sounder Trains\n• King County Water Taxi\n• Seattle Streetcar"
+        android:text="@string/where_orca_cards_work"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ORCA_LIFT_cards_title" />
@@ -83,9 +83,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="College Student Online Registration"
+            android:text="@string/college_student_online_registration"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white"
             android:fontFamily="@font/rokkitt_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,9 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Non-Student Online Registration"
+            android:text="@string/non_student_online_registration"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white"
             android:fontFamily="@font/rokkitt_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +118,7 @@
             android:paddingLeft="16dp"
             android:textSize="17sp"
             android:fontFamily="@font/rokkitt_regular"
-            android:text="Phone Registration:\n Call 1-800-756-5437 to register over the phone\n\nQuestions?\n Contact us at info@gaycity.org or 206-860-6969"
+            android:text="@string/orca_phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_Non_College_ORCA" />

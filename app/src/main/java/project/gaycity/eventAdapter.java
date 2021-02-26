@@ -14,22 +14,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> {
 
     private JSONArray mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
-    private FragmentManager fm;
-    private ArrayList<String> JSONkeys = new ArrayList<>();
+    private final LayoutInflater mInflater;
+    private final FragmentManager fm;
 
     // data is passed into the constructor
     public eventAdapter(Context context, JSONObject data, FragmentManager fm) {
         this.mInflater = LayoutInflater.from(context);
         this.fm = fm;
-        if(data == null){
+        if (data == null) {
             try {
                 this.mData = new JSONArray("[]");
             } catch (JSONException e) {
@@ -69,17 +66,20 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
-
             JSONObject event = (JSONObject) mData.get(position);
             holder.addEvent(event);
-            JSONObject data = ((JSONObject)event.get("data"));
-            JSONObject date = ((JSONObject)event.get("date"));
+            //get the data from the JSON
+            JSONObject data = ((JSONObject) event.get("data"));
+            JSONObject date = ((JSONObject) event.get("date"));
             String title = data.getString("title");
-            String startDate = formatDate(((JSONObject)date.get("start")).getString("date"));
-            String startTime = ((JSONObject)data.get("time")).getString("start");
-            String endTime = ((JSONObject)data.get("time")).getString("end");
+            String startDate = formatDate(((JSONObject) date.get("start")).getString("date"));
+            String startTime = ((JSONObject) data.get("time")).getString("start");
+            String endTime = ((JSONObject) data.get("time")).getString("end");
+            String eventDate = startDate + "  " + startTime + "-" + endTime;
+
+            //set the text views with the data
             holder.title.setText(title);
-            holder.date.setText(startDate + "  " + startTime + "-" + endTime);
+            holder.date.setText(eventDate);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -89,15 +89,6 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @Override
     public int getItemCount() {
         return mData.length();
-    }
-
-    public String shortenTitle(String title){
-        if(title.length() > 18){
-            title = title.substring(0,15) + "...";
-        }else{
-            return title;
-        }
-        return title;
     }
 
 
@@ -125,26 +116,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         }
     }
 
-    // convenience method for getting data at click position
-    JSONObject getItem(int id) {
-        try {
-            return (JSONObject) mData.get(id);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
+    //returns the 3 letter abbreviation based of the month number in the data
     private String formatDate(String date){
         int month = Integer.parseInt(date.substring(5,7));
         String monthName = "";

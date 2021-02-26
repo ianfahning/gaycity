@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -26,7 +25,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/rokkitt_bold"
         android:gravity="center_horizontal"
-        android:text="Queer Community Conversations"
+        android:text="@string/queer_community_conversations"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -37,8 +36,7 @@
 
     <TextView
         android:id="@+id/QCC_description"
-        android:text="Queer and Trans folks are among the most impacted by COVID-19. We’re more likely to work in jobs that require us to be visible in the community and physically be present in the workplace.
-\n\nLearn about concerns affecting our community in Washington State during COVID-19, share queer-affirming resources, and create a space for LGBTQ voices to be heard."
+        android:text="@string/QCC_description"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"
@@ -53,7 +51,7 @@
 
     <TextView
         android:id="@+id/QCC_events_title"
-        android:text="QCC Events"
+        android:text="@string/qcc_events"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"
@@ -74,7 +72,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center_horizontal"
-        android:text="There are currently no events"
+        android:text="@string/there_are_currently_no_events"
         android:textAlignment="center"
         android:textSize="20sp"
         android:fontFamily="@font/rokkitt_bold"

@@ -10,10 +10,9 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/gayCityDarkGreen"/>
 
     <TextView
@@ -26,7 +25,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Appointment Hours"
+        android:text="@string/appointment_hours"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +44,8 @@
         android:src="@drawable/luis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/image_for_appointment_tab"
         app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 
     <TextView
@@ -53,8 +54,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="17sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="Tuesday-Wednesday: 11:30 am to 7:00 p.m.\nFriday – 11:30 a.m. to 7:00 p.m.\nSaturday – 10:00 a.m. to 4:30 p.m."
+        android:text="@string/appointment_hours_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgView" />
@@ -68,7 +71,7 @@
         android:textSize="17sp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="Gay City: Seattle’s LGBTQ Center offers confidential and anonymous HIV testing and STI screening. Testing includes Rapid HIV Testing (finger poke), HIV antibody testing, and screening for syphilis, chlamydia, gonorrhea, and Hep C."
+        android:text="@string/appointment_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -79,9 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="Make an Appointment"
+        android:text="@string/make_an_appointment"
         android:textSize="20sp"
         android:textColor="@color/black"
         app:cornerRadius="0dp"

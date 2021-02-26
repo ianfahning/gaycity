@@ -2,6 +2,7 @@ package project.gaycity.expandableRecyclerView.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import java.util.List;
  * The backing data object for an {@link ExpandableGroup}
  */
 public class ExpandableGroup<T extends Parcelable> implements Parcelable {
-    private String title;
-    private List<T> items;
+    private final String title;
+    private final List<T> items;
 
     public ExpandableGroup(String title, List<T> items) {
         this.title = title;

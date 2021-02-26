@@ -1,42 +1,34 @@
 package project.gaycity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -45,15 +37,12 @@ import project.gaycity.ui.header;
 import project.gaycity.ui.home.HomeFragment;
 import project.gaycity.ui.subHeader;
 
-import static java.text.DateFormat.getDateTimeInstance;
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private NavigationView navigationView;
     private RecyclerView recyclerView;
-    private FragmentManager fm;
+    private static FragmentManager fm;
     private DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,35 +54,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fm = getSupportFragmentManager();
         fm.beginTransaction().add(R.id.nav_host_fragment, new HomeFragment(), "new").commit();
         drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         recyclerView = this.findViewById(R.id.recyclerView);
+        //stops the nav drawer from scrolling
         recyclerView.setLayoutManager(new LinearLayoutManager(this) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         });
+        //populates the nav drawer menu with all the pages
         populateMenu();
+        //gets the current popup if there is one
         new getPopup().execute();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 
 
     @Override
@@ -113,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         healthSubHeaders.add(new subHeader("Health Care Enrollment",R.id.fragment_health_care,true));
         healthSubHeaders.add(new subHeader("PrEP",R.id.fragment_prep,true));
         headers.add(new header("Health",healthSubHeaders,true, 0));
-
+        //resources
         ArrayList<subHeader> resourcesSubHeaders = new ArrayList<>();
         resourcesSubHeaders.add(new subHeader("Resource Database",R.id.fragment_resources_database,true));
         resourcesSubHeaders.add(new subHeader("ORCA LIFT",R.id.fragment_orca,true));
@@ -121,78 +100,134 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         resourcesSubHeaders.add(new subHeader("Technical Training",R.id.fragment_technical,true));
         resourcesSubHeaders.add(new subHeader("Queer Community Conversations",R.id.fragment_qcc,true));
         headers.add(new header("Resources",resourcesSubHeaders,true, 0));
-
+        //get involved
         ArrayList<subHeader> getInvolvedSubHeaders = new ArrayList<>();
         getInvolvedSubHeaders.add(new subHeader("Volunteer",R.id.fragment_volunteer,true));
         getInvolvedSubHeaders.add(new subHeader("Vote For Visibility",R.id.fragment_vote,true));
         getInvolvedSubHeaders.add(new subHeader("Ways to Give",R.id.fragment_give,true));
         headers.add(new header("Get Involved",getInvolvedSubHeaders,true, 0));
-
+        //connect with us
         headers.add(new header("Connect with Us",none,false, R.id.fragment_connect));
-        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,fm,recyclerView,drawer);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers, fm, drawer);
         recyclerView.setAdapter(adapter);
     }
 
 
-    private class getPopup extends AsyncTask<Void, Void, JSONObject> {
+    private static class getPopup extends AsyncTask<Void, Void, popupDialogue> {
 
         @Override
-        protected JSONObject doInBackground(Void... voids) {
+        protected popupDialogue doInBackground(Void... voids) {
 
             JSONObject json = null;
             try {
-                json = new JSONObject(getPopup());
+                json = new JSONObject(getPopupData());
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return json;
-        }
-
-        @Override
-        protected void onPostExecute(JSONObject result) {
-            JSONObject popup = null;
             try {
-                popup = (JSONObject) result.get("content_json");
+                //if content_json is an array it means that there are no events
+                if (json.get("content_json").getClass() != JSONArray.class) {
+                    JSONObject popupData = null;
+                    try {
+                        popupData = (JSONObject) json.get("content_json");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Iterator<String> keys = popupData.keys();
+                    Date currentDate = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    boolean popupFound = false;
+                    Date eventStartDate = null;
+                    //looks for the current popup if there is one
+                    while (keys.hasNext() && !popupFound) {
+                        String key = keys.next();
+                        try {
+                            //converts the key to a date
+                            eventStartDate = formatter.parse(key);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        //finds the current popup
+                        popupFound = findPopup(popupData, key, eventStartDate, currentDate, formatter);
+                    }
+                    if (popupFound) {
+                        return createPopup(popupData, formatter, eventStartDate);
+                    }
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Iterator<String> keys = popup.keys();
-            Date currentDate = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            System.out.println(currentDate);
-            boolean popupFound = false;
-            Date eventStartDate = null;
-            while(keys.hasNext() && !popupFound){
-                String key = keys.next();
+            return null;
+        }
+
+        //checks if the the current date is inbetween the start and end date of the event
+        private boolean findPopup(JSONObject popupData, String key, Date eventStartDate, Date currentDate, SimpleDateFormat formatter) {
+            //checks if event start date is before current date
+            if (eventStartDate.before(currentDate)) {
+                Date eventEndDate = null;
                 try {
-                    eventStartDate = formatter.parse(key);
-                } catch (ParseException e) {
+                    //gets the event end date from the data
+                    eventEndDate = formatter.parse(((JSONObject) ((JSONObject) ((JSONObject) ((JSONArray) popupData.get(key)).get(0)).get("date")).get("end")).getString("date"));
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                 }
-                if(eventStartDate.before(currentDate)){
-                    Date eventEndDate = null;
-                    try {
-                        eventEndDate = formatter.parse(((JSONObject)((JSONObject)((JSONObject)((JSONArray)popup.get(key)).get(0)).get("date")).get("end")).getString("date"));
-                    } catch (JSONException | ParseException e) {
-                        e.printStackTrace();
-                    }
-                    if(eventEndDate.after(currentDate)){
-                        popupFound = true;
-                    }
-                }
+                //returns true if the end date is after the current date
+                return eventEndDate.after(currentDate);
             }
-            if(popupFound){
-                popupDialogue popupDialog = null;
+            return false;
+        }
+
+        //creates and returns the popup given the JSON data
+        private popupDialogue createPopup(JSONObject popupData, SimpleDateFormat formatter, Date eventStartDate) {
+            popupDialogue popup = null;
+            try {
+                String imageLink = "";
                 try {
-                    popupDialog = popupDialogue.newInstance((JSONObject) ((JSONArray)popup.get(formatter.format(eventStartDate))).get(0),fm);
+                    //gets the Image link for a custom image on the popup
+                    imageLink = ((JSONObject) ((JSONObject) ((JSONObject) ((JSONArray) popupData.get(formatter.format(eventStartDate))).get(0)).get("data")).get("featured_image")).getString("full");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                popupDialog.show(fm, "fragment_alert");
+                Bitmap image = null;
+                //if there is a link then get the image
+                if (!imageLink.equals("")) {
+                    image = getBitmapFromURL(imageLink);
+                }
+                //creates the popup
+                popup = popupDialogue.newInstance((JSONObject) ((JSONArray) popupData.get(formatter.format(eventStartDate))).get(0), fm, image);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return popup;
+        }
+
+        //shows the dialogue when everything is done
+        @Override
+        protected void onPostExecute(popupDialogue popup) {
+            if (popup != null) {
+                popup.show(fm, "fragment_alert");
             }
         }
 
-        private String getPopup(){
+        //gets an image from a URL and returns it as a Bitmap
+        public Bitmap getBitmapFromURL(String src) {
+            try {
+                java.net.URL url = new java.net.URL(src);
+                HttpURLConnection connection = (HttpURLConnection) url
+                        .openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        //gets the popup data in JSON format and returns it as a String
+        private String getPopupData() {
             StringBuilder sb = null;
             try {
                 URL url = new URL("https://www.gaycity.org/wp-json/mecexternal/v1/calendar/12426");
@@ -209,13 +244,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
 
-                char[] buffer = new char[1024];
-
 
                 sb = new StringBuilder();
                 String line;
                 while ((line = br.readLine()) != null) {
-                    sb.append(line+"\n");
+                    sb.append(line).append("\n");
                 }
                 br.close();
             } catch (Exception e) {

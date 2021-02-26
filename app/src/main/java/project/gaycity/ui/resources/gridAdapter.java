@@ -15,18 +15,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import project.gaycity.R;
-import project.gaycity.ui.home.aboutDialogue;
 
 public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
 
-    private JSONArray mDataCopy;
-    private JSONArray mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
-    private FragmentManager fm;
+    private final JSONArray mDataCopy; //copy of the data so it can be restored when there is a filter
+    private final LayoutInflater mInflater;
+    private final FragmentManager fm;
+    private JSONArray mData;//the data
 
     // data is passed into the constructor
-    gridAdapter(Context context, JSONArray data,FragmentManager fm) {
+    gridAdapter(Context context, JSONArray data, FragmentManager fm) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mDataCopy = data;
@@ -40,16 +38,20 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    //filters the data based on the query
     public void filter(String query) {
+        //clear the current data
         mData = new JSONArray();
+        //if there is no query then replace the data with the copy
         if(query.isEmpty()){
             mData = mDataCopy;
         } else{
             query = query.toLowerCase();
+            //find if there is an occurrence of the query in either organization, communities, or basic needs
             for(int i = 0; i < mDataCopy.length(); i++){
                 try {
                     if(((JSONObject)mDataCopy.get(i)).getString("Organization").toLowerCase().contains(query)){
-                        mData.put(((JSONObject)mDataCopy.get(i)));
+                        mData.put(mDataCopy.get(i));
                     }
                     if(((JSONObject)mDataCopy.get(i)).getString("Communities").toLowerCase().contains(query)){
                         mData.put(((JSONObject)mDataCopy.get(i)));
@@ -70,11 +72,14 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
             JSONObject resource = ((JSONObject)mData.get(position));
+            //hand the holder the data for when it is clicked and needs to make a dialog
             holder.addResource(resource);
+            //get all data from the JSON
             String Organization = resource.getString("Organization");
             String Communities = resource.getString("Communities");
             String basicNeeds = resource.getString("basicNeeds");
             String website = resource.getString("website");
+            //if the data does not exist make make it a -, otherwise shorten it
             if(Organization.equals("undefined")){
                 holder.title.setText("-");
             }else{
@@ -106,6 +111,7 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
         return mData.length();
     }
 
+    //shortens a string if it needs to and adds an ellipses
     public String shortenTitle(String title){
         if(title.length() > 18){
             title = title.substring(0,15) + "...";
@@ -135,6 +141,7 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
+            //created a dialog to display more information
             resourceDialogue alertDialog = resourceDialogue.newInstance(resource);
             alertDialog.show(fm, "fragment_alert");
         }
@@ -142,26 +149,6 @@ public class gridAdapter extends RecyclerView.Adapter<gridAdapter.ViewHolder> {
         public void addResource(JSONObject resource) {
             this.resource = resource;
         }
-    }
-
-    // convenience method for getting data at click position
-    JSONObject getItem(int id) {
-        try {
-            return (JSONObject) mData.get(id);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
     }
 
 }

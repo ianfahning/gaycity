@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +21,7 @@ import project.gaycity.R;
 
 public class resourceDialogue extends DialogFragment {
 
-    private JSONObject json;
+    private final JSONObject json;
     private static AlertDialog dialog;
 
     public resourceDialogue(JSONObject json){
@@ -28,15 +29,15 @@ public class resourceDialogue extends DialogFragment {
     }
 
     public static project.gaycity.ui.resources.resourceDialogue newInstance(JSONObject json){
-        project.gaycity.ui.resources.resourceDialogue frag = new project.gaycity.ui.resources.resourceDialogue(json);
-        return frag;
+        return new resourceDialogue(json);
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.dialogue_resource, container);
         try {
+            //gets the data from the JSON
             String organization = json.getString("Organization");
             String mission = json.getString("mission");
             String vision = json.getString("vision");
@@ -50,6 +51,7 @@ public class resourceDialogue extends DialogFragment {
             String Communities = json.getString("Communities");
             String basicNeeds = json.getString("basicNeeds");
             String accessNeeds = json.getString("accessNeeds");
+            //if any values are undefined set them to -, otherwise set them normally
             if(organization.equals("undefined")){
                 ((TextView) view.findViewById(R.id.title)).setText("-");
             }else{
@@ -127,13 +129,6 @@ public class resourceDialogue extends DialogFragment {
             }else{
                 ((TextView) view.findViewById(R.id.access)).setText(accessNeeds);
             }
-
-          //  ((TextView) view.findViewById(R.id.transServices)).setText(json.getString("transServices"));
-           // ((TextView) view.findViewById(R.id.bipocServices)).setText(json.getString("bipocServices"));
-           // ((TextView) view.findViewById(R.id.lgtbqYouthServices)).setText(json.getString("lgbtqYouthServices"));
-           // ((TextView) view.findViewById(R.id.lgtbqAdultServices)).setText(json.getString("lgbtqAdultServices"));
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -141,14 +136,10 @@ public class resourceDialogue extends DialogFragment {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        view.findViewById(R.id.button_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        view.findViewById(R.id.button_back).setOnClickListener(view1 -> dialog.dismiss());
     }
 
+    @NotNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         dialog = alertDialogBuilder.create();

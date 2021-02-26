@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_health_care"
@@ -7,26 +7,20 @@
     android:layout_height="wrap_content"
     tools:context=".ui.connect.ConnectFragment">
 
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -38,7 +32,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Health Insurance"
+        android:text="@string/health_insurance"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,28 +42,32 @@
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="wrap_content"
-            android:padding="16dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="#00000000"
+            android:contentDescription="@string/image_in_health_insurance_tab"
+            android:padding="16dp"
             android:src="@drawable/couple"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
-    <TextView
-        android:id="@+id/health_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:textSize="17sp"
-        android:fontFamily="@font/rokkitt_regular"
-        android:gravity="center"
-        android:text="Get Enrolled in health insurance plan (including Apple Health) with the assistance of a multilingual LGBTQ health navigator today. We will help you enroll in the plan that works bets for you.\n\nEnrollment services are available online and by phone"
-        app:layout_constraintEnd_toEndOf="parent"
+
+        <TextView
+            android:id="@+id/health_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="17sp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:gravity="center"
+            android:text="@string/health_insurance_description"
+            app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgView" />
 
@@ -79,9 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="Enroll Today"
+        android:text="@string/enroll_today"
         android:textSize="20sp"
         android:textColor="@color/black"
         app:cornerRadius="0dp"
@@ -103,12 +100,3 @@
         app:layout_constraintTop_toBottomOf="@+id/button_health_fragment"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-    <ImageView
-        android:id="@+id/image_back_to_top"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="70dp"
-        android:src="@mipmap/top_arrow"
-        android:visibility="invisible"
-        android:layout_gravity="top|center"/>
-</FrameLayout>

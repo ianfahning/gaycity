@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -28,7 +27,7 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Volunteer"
+        android:text="@string/volunteer"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +53,7 @@
         android:gravity="center_horizontal"
         android:textSize="15sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="In-person volunteering postponed during current phase of COVID-19 outbreak."
+        android:text="@string/volunteer_covid"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,13 +71,13 @@
         android:src="@drawable/library_volunteer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/image_in_volunteer_tab"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3" />
 
     <TextView
         android:id="@+id/volunteer_description"
-        android:text="At Gay City, your volunteer experience has real, tangible results. Whether helping to produce Gay City special events or assisting in one of our office spaces, you’ll see the impact live and in-person. Use your personal experiences to create programs and determine how they will help support the community.
-\n\nYou control your shift time, commitment and depth of involvement.
-\n\nSo jump on in! Experience the fun, challenge, and excitement of volunteering at Gay City."
+        android:text="@string/volunteer_description"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"

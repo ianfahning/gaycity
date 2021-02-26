@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,37 +41,33 @@ public class HomeFragment extends Fragment {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        //set the onclick for the buttons
         Button aboutButton = (Button) view.findViewById(R.id.button_mission);
-        FragmentManager fm  = getFragmentManager();
-        View.OnClickListener dialogue = new View.OnClickListener() {
-            public void onClick(View v) {
-                aboutDialogue alertDialog = aboutDialogue.newInstance();
-                alertDialog.show(fm, "fragment_alert");
-            }
+        FragmentManager fm = getFragmentManager();
+        View.OnClickListener dialogue = v -> {
+            aboutDialogue alertDialog = aboutDialogue.newInstance();
+            alertDialog.show(fm, "fragment_alert");
         };
         aboutButton.setOnClickListener(dialogue);
         Button donateButton = (Button) getView().findViewById(R.id.button_donate);
-        View.OnClickListener donateLink = new View.OnClickListener() {
-            public void onClick(View v) {
-                Uri uriUrl = Uri.parse("https://www.flipcause.com/hosted_widget/hostedWidgetHome/MjQyMzE=");
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-            }
+        View.OnClickListener donateLink = v -> {
+            Uri uriUrl = Uri.parse("https://www.flipcause.com/hosted_widget/hostedWidgetHome/MjQyMzE=");
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
         };
         donateButton.setOnClickListener(donateLink);
         Button appointmentButton = (Button) getView().findViewById(R.id.button_appointment);
-        View.OnClickListener appointmentLink = new View.OnClickListener() {
-            public void onClick(View v) {
-                Uri uriUrl = Uri.parse("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-            }
+        View.OnClickListener appointmentLink = v -> {
+            Uri uriUrl = Uri.parse("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
         };
         appointmentButton.setOnClickListener(appointmentLink);
     }
 
     private class getEvents extends AsyncTask<Void, Void, JSONObject> {
 
+        //returns the event in JSON format
         @Override
         protected JSONObject doInBackground(Void... voids) {
 
@@ -96,6 +91,7 @@ public class HomeFragment extends Fragment {
             root.findViewById(R.id.loading).setVisibility(View.GONE);
             RecyclerView recyclerView = root.findViewById(R.id.eventRecyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+            //if there are no events display the no events nexts
             if(events == null){
                 root.findViewById(R.id.text_no_events).setVisibility(View.VISIBLE);
             }
@@ -104,9 +100,9 @@ public class HomeFragment extends Fragment {
             Animation fadeIn = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_in);
             recyclerView.startAnimation(fadeIn);
             recyclerView.setVisibility(View.VISIBLE);
-
         }
 
+        //gets and returns the events in JSON format as a String
         private String getEvents(){
             StringBuilder sb = null;
             try {
@@ -124,13 +120,11 @@ public class HomeFragment extends Fragment {
 
                 BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
 
-                char[] buffer = new char[1024];
-
 
                 sb = new StringBuilder();
                 String line;
                 while ((line = br.readLine()) != null) {
-                    sb.append(line+"\n");
+                    sb.append(line).append("\n");
                 }
                 br.close();
             } catch (Exception e) {

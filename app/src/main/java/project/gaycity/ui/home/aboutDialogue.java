@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import project.gaycity.R;
 
 public class aboutDialogue extends DialogFragment {
@@ -19,26 +21,20 @@ public class aboutDialogue extends DialogFragment {
     }
 
     public static aboutDialogue newInstance(){
-        aboutDialogue frag = new aboutDialogue();
-        return frag;
+        return new aboutDialogue();
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.dialogue_about, container);
-        return view;
+        return inflater.inflate(R.layout.dialogue_about, container);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        view.findViewById(R.id.button_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        view.findViewById(R.id.button_back).setOnClickListener(view1 -> dialog.dismiss());
     }
 
+    @NotNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         dialog = alertDialogBuilder.create();

@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -28,7 +27,7 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Connect with Us"
+        android:text="@string/connect_with_us"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +40,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:textSize="25dp"
+        android:text="@string/social_media"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Social Media"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_gallery" />
@@ -55,60 +54,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Facebook"
+        android:text="@string/facebook"
+        android:textSize="25sp"
         android:textAllCaps="false"
-        android:textSize="25dp"
+        app:backgroundTint="@color/facebook"
         android:textColor="@color/white"
-        android:backgroundTint="@color/facebook"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_connect"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:cornerRadius="0dp"
         app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
-
-    <ImageView
-        android:visibility="gone"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/facebook"
-        app:layout_constraintBottom_toBottomOf="@+id/button_facebook"
-        app:layout_constraintEnd_toEndOf="@+id/button_facebook"
-        app:layout_constraintTop_toTopOf="@+id/button_facebook"
-        android:layout_marginRight="16dp"
-        android:outlineSpotShadowColor="@color/white"/>
+        app:strokeWidth="3dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_twitter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Twitter"
-        android:textSize="25dp"
+        android:text="@string/twitter"
+        android:textSize="25sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:backgroundTint="@color/twitter"
+        app:backgroundTint="@color/twitter"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_facebook"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:cornerRadius="0dp"
         app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
+        app:strokeWidth="3dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_youtube"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="YouTube"
-        android:textSize="25dp"
+        android:text="@string/youtube"
+        android:textSize="25sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:backgroundTint="@color/youtube"
+        app:backgroundTint="@color/youtube"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,11 +109,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Instagram"
-        android:textSize="25dp"
+        android:text="@string/instagram"
+        android:textSize="25sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:backgroundTint="@color/instagram"
+        app:backgroundTint="@color/instagram"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,10 +125,10 @@
 
     <TextView
         android:id="@+id/text_contactus"
-        android:text="Contact Us"
+        android:text="@string/contact_us"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
@@ -152,10 +138,10 @@
 
     <TextView
         android:id="@+id/text_phone_title"
-        android:text="Phone"
+        android:text="@string/phone_lowercase"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,7 +149,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_contactus"/>
     <TextView
         android:id="@+id/phone"
-        android:text="206-860-6969"
+        android:text="@string/gaycity_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -171,10 +157,10 @@
         app:layout_constraintTop_toBottomOf="@+id/text_phone_title"/>
     <TextView
         android:id="@+id/text_resource_title"
-        android:text="Resource Helpline"
+        android:text="@string/resource_helpline"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +168,7 @@
         app:layout_constraintTop_toBottomOf="@+id/phone"/>
     <TextView
         android:id="@+id/resource_helpline"
-        android:text="206-323-LGBT"
+        android:text="@string/resource_helpline_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,10 +176,10 @@
         app:layout_constraintTop_toBottomOf="@+id/text_resource_title"/>
     <TextView
         android:id="@+id/text_crisis_title"
-        android:text="24-Hour Crisis Line"
+        android:text="@string/_24_hour_crisis_line"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -201,7 +187,7 @@
         app:layout_constraintTop_toBottomOf="@+id/resource_helpline"/>
     <TextView
         android:id="@+id/crisis"
-        android:text="866-427-4747"
+        android:text="@string/_24_hour_crisi_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -209,10 +195,10 @@
         app:layout_constraintTop_toBottomOf="@+id/text_crisis_title"/>
     <TextView
         android:id="@+id/text_email_title"
-        android:text="Email"
+        android:text="@string/email_lowecase"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:fontFamily="@font/rokkitt_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +206,7 @@
         app:layout_constraintTop_toBottomOf="@+id/crisis"/>
     <TextView
         android:id="@+id/email"
-        android:text="info@gaycity.org"
+        android:text="@string/gaycity_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

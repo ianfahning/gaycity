@@ -15,10 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -31,7 +30,7 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Vote for Visibility"
+        android:text="@string/vote_for_visibility"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +39,7 @@
     <TextView
         android:id="@+id/vote_description"
         android:gravity="center"
-        android:text="For the past 14 years, LGBTQ people have proportionately voted at lower rates than non-LGBTQ+ voters. It’s our elected officials who will approve education, employment, and health care bills that affect our communities. They will determine how to use the census data to influence the resources we need in our community.
-\n\nThis year, join us at the polls. Stand with your community and fight for an affirming, queer-inclusive world.
-\n\nLet’s vote and increase LGBTQ+ visibility at the polls."
+        android:text="@string/vote_for_visibility_description"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"
@@ -58,8 +55,7 @@
         android:id="@+id/button_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register to Vote"
-        android:backgroundTint="@color/white"
+        android:text="@string/register_to_vote"
         android:textColor="@color/black"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="8dp"
@@ -75,8 +71,7 @@
         android:id="@+id/button_ballot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Request Absentee Ballot"
-        android:backgroundTint="@color/white"
+        android:text="@string/request_absentee_ballot"
         android:textColor="@color/black"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="8dp"
@@ -92,8 +87,7 @@
         android:id="@+id/button_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Address"
-        android:backgroundTint="@color/white"
+        android:text="@string/change_address"
         android:textColor="@color/black"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="8dp"
@@ -109,8 +103,7 @@
         android:id="@+id/button_accessible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accessible Voting"
-        android:backgroundTint="@color/white"
+        android:text="@string/accessible_voting"
         android:textColor="@color/black"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="8dp"
@@ -128,8 +121,6 @@
         android:layout_height="475dp"
         android:layout_marginTop="8dp"
         android:background="@color/gayCityLightGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
 
@@ -145,6 +136,8 @@
             android:src="@drawable/vote"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/image_in_vote_for_visibility_tab"
             app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
 
         <TextView
@@ -152,8 +145,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="10 Ways to Prep for an Election"
-            android:textSize="25dp"
+            android:text="@string/_10_ways_to_prep_for_an_election"
+            android:textSize="25sp"
             android:fontFamily="@font/rokkitt_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,8 +157,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="We’re consistently being hit with misinformation and voter suppression tricks. Time to counter it with our own tactic – knowledge – with 10 ways to prep before visiting the polls or requesting your ballot."
-            android:textSize="17dp"
+            android:text="@string/_10_ways_to_prepare_description"
+            android:textSize="17sp"
             android:gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -178,8 +171,7 @@
             android:id="@+id/button_vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Learn More"
-            android:backgroundTint="@color/white"
+            android:text="@string/learn_more"
             android:textColor="@color/black"
             android:fontFamily="@font/rokkitt_regular"
             android:layout_marginTop="8dp"

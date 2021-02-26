@@ -29,27 +29,28 @@ import project.gaycity.ui.resources.TechnicalFragment;
 import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
 public class parentViewHolder extends GroupViewHolder {
-    private TextView textView;
-    private ImageView arrow;
+    private final TextView textView;
+    private final ImageView arrow;
     private boolean isArrow;
 
-    public parentViewHolder(View itemView){
+    public parentViewHolder(View itemView) {
         super(itemView);
         textView = itemView.findViewById(R.id.lblListHeader);
         arrow = itemView.findViewById(R.id.arrow);
     }
 
-    public void bind(header model, FragmentManager fm, DrawerLayout drawer){
+    public void bind(header model, FragmentManager fm, DrawerLayout drawer) {
         this.isArrow = model.isArrow;
+        //sets arrow to visible if the model is expandable
         if(this.isArrow){
             arrow.setVisibility(View.VISIBLE);
         }
-        if(model.fragment != 0){
-            View.OnClickListener changeFragment = new View.OnClickListener() {
-                public void onClick(View v) {
-                    fm.beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.nav_host_fragment,findFragment(model.fragment),null).commit();
-                    drawer.close();
-                }
+        //if there is a value for fragment it means that when you click it, it should open a new fragment
+        if(model.fragment != 0) {
+            //set the onclick to open the new fragment
+            View.OnClickListener changeFragment = v -> {
+                fm.beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.nav_host_fragment, findFragment(model.fragment), null).commit();
+                drawer.close();
             };
             textView.setOnClickListener(changeFragment);
         }
@@ -66,26 +67,25 @@ public class parentViewHolder extends GroupViewHolder {
         if(isArrow) {animateCollapse();}
     }
 
+    //animation for the arrow when the element expands
     private void animateExpand() {
-            RotateAnimation rotate =
-                    new RotateAnimation(360, 180, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
-            rotate.setDuration(300);
-            rotate.setFillAfter(true);
-            arrow.setAnimation(rotate);
+        RotateAnimation rotate =
+                new RotateAnimation(360, 180, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(300);
+        rotate.setFillAfter(true);
+        arrow.setAnimation(rotate);
     }
 
+    //animation for the arrow when the element collapse
     private void animateCollapse() {
-            RotateAnimation rotate =
-                    new RotateAnimation(180, 360, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
-            rotate.setDuration(300);
-            rotate.setFillAfter(true);
-            arrow.setAnimation(rotate);
+        RotateAnimation rotate =
+                new RotateAnimation(180, 360, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(300);
+        rotate.setFillAfter(true);
+        arrow.setAnimation(rotate);
     }
 
-    public void setTextColor(int textColor){
-        textView.setTextColor(textColor);
-    }
-
+    //returns a new fragment based on the number passed to it
     private Fragment findFragment(int num){
         switch(num){
             case R.id.fragment_home:

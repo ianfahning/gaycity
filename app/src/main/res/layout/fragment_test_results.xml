@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_test_results"
@@ -7,24 +7,19 @@
     android:layout_height="wrap_content"
     tools:context=".ui.connect.ConnectFragment">
 
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent">
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -36,7 +31,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="View Testing Results"
+        android:text="@string/view_testing_results"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,30 +46,29 @@
         android:paddingLeft="16dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textSize="17dp"
+        android:text="@string/testing_results_description"
         android:fontFamily="@font/rokkitt_regular"
-        android:text="Gay City clients can view, download, and print their HIV/STI testing results online for free. No more waiting for the results phone line to open.\n\nTesters will invite clients to use the Patient Portal during their appointment. if clients agree, they can check results here"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_results_fragment"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/rokkitt_regular"
-        android:text="Check Results"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_results_text"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_results_fragment"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/check_results"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test_results_text"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
     <TextView
         android:id="@+id/text_disclamer"
@@ -85,7 +79,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/rokkitt_regular"
         android:gravity="center_horizontal"
-        android:text="*All results will be available to clients within two weeks. Please note that our testing team will contact clients with positive results before they are posted"
+        android:text="@string/testing_results_astrisk"
         android:textAlignment="center"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,17 +96,8 @@
         android:dividerHeight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_disclamer"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_disclamer" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-    <ImageView
-        android:id="@+id/image_back_to_top"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="70dp"
-        android:src="@mipmap/top_arrow"
-        android:visibility="invisible"
-        android:layout_gravity="top|center"/>
-</FrameLayout>
+</ScrollView>

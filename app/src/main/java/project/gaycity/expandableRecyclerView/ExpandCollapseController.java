@@ -12,8 +12,8 @@ import project.gaycity.expandableRecyclerView.models.ExpandableListPosition;
  */
 public class ExpandCollapseController {
 
-    private ExpandCollapseListener listener;
-    private ExpandableList expandableList;
+    private final ExpandCollapseListener listener;
+    private final ExpandableList expandableList;
 
     public ExpandCollapseController(ExpandableList expandableList, ExpandCollapseListener listener) {
         this.expandableList = expandableList;

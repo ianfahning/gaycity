@@ -7,13 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +23,6 @@ import java.net.URL;
 
 import project.gaycity.R;
 import project.gaycity.eventAdapter;
-import project.gaycity.ui.home.HomeFragment;
 
 public class QCCFragment extends Fragment {
 
@@ -42,9 +37,9 @@ public class QCCFragment extends Fragment {
 
     private class getEvents extends AsyncTask<Void, Void, JSONObject> {
 
+        //gets the events in JSON format
         @Override
         protected JSONObject doInBackground(Void... voids) {
-
             JSONObject json = null;
             try {
                 json = new JSONObject(getEvents());
@@ -54,6 +49,7 @@ public class QCCFragment extends Fragment {
             return json;
         }
 
+        //sets the events in the recylcerview
         @Override
         protected void onPostExecute(JSONObject result) {
             JSONObject events = null;
@@ -62,20 +58,24 @@ public class QCCFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            //remove the loading symbol
             root.findViewById(R.id.loading).setVisibility(View.GONE);
             RecyclerView recyclerView = root.findViewById(R.id.eventRecyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+            //if no events, display the "no events text"
             if(events == null){
                 root.findViewById(R.id.text_no_events).setVisibility(View.VISIBLE);
             }
             eventAdapter adapter = new eventAdapter(root.getContext(), events, getFragmentManager());
             recyclerView.setAdapter(adapter);
+            //fade in the recylcerview
             Animation fadeIn = AnimationUtils.loadAnimation(root.getContext(), R.anim.fade_in);
             recyclerView.startAnimation(fadeIn);
             recyclerView.setVisibility(View.VISIBLE);
 
         }
 
+        //gets the events in JSON format as a string
         private String getEvents(){
             StringBuilder sb = null;
             try {
@@ -93,13 +93,11 @@ public class QCCFragment extends Fragment {
 
                 BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
 
-                char[] buffer = new char[1024];
-
 
                 sb = new StringBuilder();
                 String line;
                 while ((line = br.readLine()) != null) {
-                    sb.append(line+"\n");
+                    sb.append(line).append("\n");
                 }
                 br.close();
             } catch (Exception e) {

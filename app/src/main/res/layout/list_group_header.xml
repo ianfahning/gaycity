@@ -12,7 +12,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_keyboard_arrow_down_foreground"/>
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/location_for_potential_image"
+        android:src="@drawable/ic_keyboard_arrow_down_foreground" />
 
     <TextView
         android:id="@+id/lblListHeader"
@@ -24,5 +26,7 @@
         android:fontFamily="@font/rokkitt_bold"
         android:textColor="@color/black"
         android:background="@color/transparent"
+        android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingEnd="?attr/listPreferredItemPaddingRight"
         android:textSize="22sp" />
 </FrameLayout>

@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -28,7 +27,7 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Resource Database"
+        android:text="@string/resource_database"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,13 +71,14 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/up_arrow_description"
         app:layout_constraintTop_toBottomOf="@+id/search" />
     <TextView
         android:id="@+id/resource_error"
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error: could not pull Resources from database"
+        android:text="@string/error_could_not_pull_resources_from_database"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

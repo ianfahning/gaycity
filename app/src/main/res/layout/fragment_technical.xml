@@ -15,10 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/gayCityDarkGreen"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"
@@ -31,7 +30,7 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:fontFamily="@font/rokkitt_bold"
-        android:text="Technical Assistance"
+        android:text="@string/technical_assistance"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +48,14 @@
         android:src="@drawable/woman_on_headset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/image_in_technical_assistance_tab"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2" />
 
 
     <TextView
         android:id="@+id/outreach_description"
-        android:text="Gay City provides leading trainers and educators who will provide in-depth training and technical guidance based on your needs.\n\nFrom making your company culture inclusive of LGBTQ communities to building motivational interviewing skills, Gay City can fulfill your needs.\n\nTrainers require at least two-weeks notice prior to the training and technical assistance.\n\nTo request a training, please click the button below to complete the form. After submitting the form, we will reach out to you within 10 business days with next steps."
+        android:text="@string/technical_assistance_description"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"
@@ -72,9 +73,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Submit Request"
+        android:text="@string/submit_request"
         android:textColor="@color/black"
-        android:backgroundTint="@color/white"
         android:fontFamily="@font/rokkitt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

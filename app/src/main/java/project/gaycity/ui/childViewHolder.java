@@ -27,7 +27,7 @@ import project.gaycity.ui.resources.TechnicalFragment;
 
 public class childViewHolder extends ChildViewHolder {
     public TextView textView;
-    private ImageView imageView;
+    private final ImageView imageView;
 
     public childViewHolder(View itemView){
         super(itemView);
@@ -35,26 +35,23 @@ public class childViewHolder extends ChildViewHolder {
         imageView = itemView.findViewById(R.id.imgView);
     }
 
-    public void bind(subHeader model, FragmentManager fm, DrawerLayout drawer){
+    public void bind(subHeader model, FragmentManager fm, DrawerLayout drawer) {
         textView.setText(model.name);
-        imageView.setVisibility(View.GONE);
-        if(!model.isFragment && model.imageOrFragment != 0){
+        //if the model is not supposed change fragments and the image or fragment in non zero that means
+        //that it is supposed to show an image and the value in the imageOrFragment is an image
+        if (!model.isFragment && model.imageOrFragment != 0) {
             imageView.setImageResource(model.imageOrFragment);
             imageView.setVisibility(View.VISIBLE);
-        }else if(model.isFragment){
-            View.OnClickListener changeFragment = new View.OnClickListener() {
-                public void onClick(View v) {
-                    fm.beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.nav_host_fragment,findFragment(model.imageOrFragment),null).commit();
-                    drawer.close();
-                }
+            //if the model is supposed to change fragments then set the on click. this means that the
+            //imageOrFragment value is a fragment
+        } else if (model.isFragment) {
+            View.OnClickListener changeFragment = v -> {
+                fm.beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.nav_host_fragment, findFragment(model.imageOrFragment), null).commit();
+                drawer.close();
             };
             textView.setOnClickListener(changeFragment);
         }
 
-    }
-
-    public void setTextColor(int textColor){
-        textView.setTextColor(textColor);
     }
 
     private Fragment findFragment(int num){

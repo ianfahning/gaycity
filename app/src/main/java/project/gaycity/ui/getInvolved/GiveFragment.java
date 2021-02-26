@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import project.gaycity.R;
@@ -33,21 +35,22 @@ public class GiveFragment extends Fragment {
         return root;
     }
 
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
+        //set the onclick for the button
         Button donateButton = (Button) getView().findViewById(R.id.button_donate);
-        View.OnClickListener donateLink = new View.OnClickListener() {
-            public void onClick(View v) {
-                Uri uriUrl = Uri.parse("https://www.flipcause.com/hosted_widget/hostedWidgetHome/MjQyMzE=");
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-            }
+        View.OnClickListener donateLink = v -> {
+            Uri uriUrl = Uri.parse("https://www.flipcause.com/hosted_widget/hostedWidgetHome/MjQyMzE=");
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
         };
         donateButton.setOnClickListener(donateLink);
+        //sets up the expandable recyclerview with all the data
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-        populateMenu();
+        populateMenu();//sets the data for the recycler view
     }
 
+    //populates the expandable recyclerview with all its data
     public void populateMenu(){
         ArrayList<header> headers = new ArrayList<>();
         //mail a check
@@ -79,13 +82,12 @@ public class GiveFragment extends Fragment {
         ArrayList<subHeader> amazonSubHeaders = new ArrayList<>();
         amazonSubHeaders.add(new subHeader("Amazon Smile is a quick and automated way for you to support your favorite charitable organization every time you shop, at no cost to you. Select Gay City as a charitable recipient through smile.amazon.com, and Amazon will donate a portion of the funds they receive from your purchase.",0,false));
         headers.add(new header("AmazonSmile",amazonSubHeaders,true,0));
-        //Car Donations
         //Kroger Co.Family of Stores
         ArrayList<subHeader> krogerSubHeaders = new ArrayList<>();
         krogerSubHeaders.add(new subHeader("Kroger and its family of stores, like Fred Meyer, donate more than $2 million per year to non-profits across the Pacific Northwest with recommendations from their customers. Sign up for the Community Rewards program and link your Fred Meyer Rewards Card to Gay City Health Project (QI274) at fredmeyer.com/communityrewards. Every time you shop, Fred Meyer will donate a portion of its proceeds back to Seattle’s only LGBTQ center.",0,false));
         headers.add(new header("Kroger Co. Family of Stores (Fred Meyer/QFC/Fry’s)",krogerSubHeaders,true,0));
 
-        expandableMenuAdapter adapter = new expandableMenuAdapter(headers,null,recyclerView, null);
+        expandableMenuAdapter adapter = new expandableMenuAdapter(headers, null, null);
         recyclerView.setAdapter(adapter);
     }
 

@@ -4,25 +4,25 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
         android:layout_weight=".25"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent">
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appCompatImageView3"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/gayCityDarkGreen"
-                app:layout_constraintBottom_toTopOf="@+id/text_events"
-                app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+                app:layout_constraintEnd_toEndOf="@+id/text_gallery"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_gallery"
@@ -33,7 +33,7 @@
                 android:layout_marginEnd="8dp"
                 android:textSize="30sp"
                 android:fontFamily="@font/rokkitt_bold"
-                android:text="10 WAYS TO PREPARE FOR AN ELECTION"
+                android:text="@string/_10_ways_to_prepare_for_an_election"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,11 +44,7 @@
                 android:id="@+id/vision_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Here are ten ways to prepare for any upcoming election. The tips may differ depending on the city, county and state where you live, so we have included some national resources for those that live outside King County (Washington State).
-\n\nIf at any point you need help (accessibility concerns or otherwise), contact your local elections office for help:
-\n\n• King County (WA): 206-296-vote
-\n• United States: 1-866-OUR-VOTE or 888-VE-Y-VOTA.
-\n\nPlease share any election preparation tips you have to communications@gaycity.org."
+                android:text="@string/_10_ways_to_prepare_for_an_election_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -62,9 +58,9 @@
                 android:id="@+id/one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="01"
+                android:text="@string/_01"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -77,8 +73,8 @@
                 android:id="@+id/one_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Are you Eligible to Vote?"
-                android:textSize="25dp"
+                android:text="@string/are_you_eligible_to_vote"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -92,14 +88,7 @@
                 android:id="@+id/one_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To register to vote in the state of Washington, you must be:
-\n\n• A citizen of the United States
-\n• A legal resident of Washington state for at least 30 days prior to election day
-\n• At least 18 years old by election day
-\n• Not disqualified from voting due to a court order
-\n• Not under Department of Corrections supervision for a Washington felony conviction
-\n\nNot 18 years old?
-\n\nIf you meet all of the requirements, except you’re 16 or 17, you can pre-register to vote. Your registration will be held by the elections office until you become eligible to vote."
+                android:text="@string/eligible_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -113,8 +102,7 @@
                 android:id="@+id/button_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Voter Elgibility"
-                android:backgroundTint="@color/white"
+                android:text="@string/voter_elgibility"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_regular"
                 android:layout_marginTop="8dp"
@@ -130,9 +118,9 @@
                 android:id="@+id/two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="02"
+                android:text="@string/_02"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -140,12 +128,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_one" />
+
             <TextView
                 android:id="@+id/two_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Check Your Voter Registration"
-                android:textSize="25dp"
+                android:text="@string/check_your_voter_registration"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -160,8 +149,7 @@
                 android:id="@+id/two_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Whether you registered last year or recently registered, make sure your registration was processed correctly – verify your name and address.
-\n\nSometimes people are purged from the rolls or simple computer glitches, so we encourage you to take a few minutes to check your registration."
+                android:text="@string/voter_registration_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -175,8 +163,7 @@
                 android:id="@+id/button_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Check REgistration"
-                android:backgroundTint="@color/white"
+                android:text="@string/check_registration"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_regular"
                 android:layout_marginTop="8dp"
@@ -192,9 +179,9 @@
                 android:id="@+id/three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="03"
+                android:text="@string/_03"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -202,12 +189,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_two" />
+
             <TextView
                 android:id="@+id/three_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register to Vote"
-                android:textSize="25dp"
+                android:text="@string/register_to_vote"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -222,19 +210,7 @@
                 android:id="@+id/three_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unable to find your registration in the polls? Does your registration have your dead name, but your ID have your real name? Has your address changed?
-\n\nThese are just some of the reasons to register to vote.
-\n\nHere are the things you need to register:
-
-\n\n• Complete a voter registration card online, in person, or print and mail it to the elections office.
-\n• King County (Washington State) | Provide a copy of an approved ID:
-\n• Driver’s license
-\n• State ID card
-\n• Student ID card
-\n• Tribal ID card
-\n• Employer ID card
-\n• Outside King County | Provide a copy of an approved ID:
-\n• Learn more at voteriders.org."
+                android:text="@string/register_to_vote_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -248,8 +224,7 @@
                 android:id="@+id/button_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Complete voter registration"
-                android:backgroundTint="@color/white"
+                android:text="@string/complete_voter_registration"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_regular"
                 android:layout_marginTop="8dp"
@@ -264,9 +239,9 @@
                 android:id="@+id/four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="04"
+                android:text="@string/_04"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -274,12 +249,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_three" />
+
             <TextView
                 android:id="@+id/four_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Request an Early Vote (Absentee) Ballot"
-                android:textSize="25dp"
+                android:text="@string/request_an_early_vote_absentee_ballot"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -294,10 +270,7 @@
                 android:id="@+id/four_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact your local elections office to request a printed vote early ballot or to vote online.
-\n\nEven in the few states where ballots are sent automatically, you should still ensure your ballot has been sent and when to expect it. Sometimes there are computer glitches or mailing issues that arise, and you don’t want that to keep you from voting.
-\n\nIn King County (Washington State) you can call (206) 296-VOTE.
-\n\nOutside King County you can call 1-866-OUR-VOTE."
+                android:text="@string/absentee_ballot_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -311,9 +284,9 @@
                 android:id="@+id/five"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="05"
+                android:text="@string/_05"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -321,12 +294,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/four_description" />
+
             <TextView
                 android:id="@+id/five_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Do Your Research"
-                android:textSize="25dp"
+                android:text="@string/do_your_research"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -341,12 +315,7 @@
                 android:id="@+id/five_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You’re halfway there to completing the your preparation for the election. But, this is one of the biggest steps of them all – know what you’re voting for.
-\n\nHere are some ways to research the candidates and the referendums:
-\n\n• Vote411
-\n• Ballotpedia
-\n• Contact the candidates and their party to ask your questions
-\n• Read articles from trusted media sources who cite their sources or have media that is moderately edited"
+                android:text="@string/do_your_research_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -361,9 +330,9 @@
                 android:id="@+id/six"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="06"
+                android:text="@string/_06"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -371,12 +340,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/five_description" />
+
             <TextView
                 android:id="@+id/six_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Follow All Ballot Instructions"
-                android:textSize="25dp"
+                android:text="@string/follow_all_ballot_instructions"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -391,11 +361,7 @@
                 android:id="@+id/six_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Instructions will accompany your Vote Early (Absentee) ballot. Follow instructions as noted, ensure you’re using the correct marking tool (e.g. pen or pencil).
-\n\nRemember to sign your envelope as well.
-\n\nIf you have further questions about how to complete your ballot and return it to your elections office, please call the following offices:
-\n\n• In King County (Washington State) you can call (206) 296-VOTE.
-\n• Outside King County you can call 1-866-OUR-VOTE."
+                android:text="@string/ballot_instructions_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -410,9 +376,9 @@
                 android:id="@+id/seven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="07"
+                android:text="@string/_07"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -420,12 +386,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/six_description" />
+
             <TextView
                 android:id="@+id/seven_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Track Your Ballot"
-                android:textSize="25dp"
+                android:text="@string/track_your_ballot"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -440,8 +407,7 @@
                 android:id="@+id/seven_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="For early voting ballots, remember you can track your ballot from the elections office to your home and from your home to the office online.
-\n\nIf your ballot remains missing on Election Day, you may need to vote in person with a provisional ballot to ensure you only vote once. View the next step to learn more about voting in person."
+                android:text="@string/track_your_ballot_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -455,8 +421,7 @@
                 android:id="@+id/button_seven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Track Ballot Now"
-                android:backgroundTint="@color/white"
+                android:text="@string/track_ballot_now"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_regular"
                 android:layout_marginTop="8dp"
@@ -472,9 +437,9 @@
                 android:id="@+id/eight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="08"
+                android:text="@string/_08"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -482,12 +447,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_seven" />
+
             <TextView
                 android:id="@+id/eight_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create a Backup Plan"
-                android:textSize="25dp"
+                android:text="@string/create_a_backup_plan"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -502,20 +468,7 @@
                 android:id="@+id/eight_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="If you made a mistake, your ballot is missing on Election Day, or you never received their ballot, you may need to visit a vote center on Election Day.
-\n\nRemember to bring an active and in-state ID to your local vote center. Examples in King County (WA) include:
-\n\n• Driver’s license
-\n• State ID card
-\n• Student ID card
-\n• Tribal ID card
-\n• Employer ID card
-\n\nOutside King County, check for accepted IDs here at voteriders.org and visit the vote center assigned for your address.
-\n\nIn some states you may need to request a provisional ballot that will be counted once the election office verifies that you have only submitted one ballot.
-\n\nOther scenarios:
-\n\nI made a mistake on my ballot.
-\n\nWork with your local elections office to correct any errors.
-\n\nI don’t have an ID.
-\n\nRequest a provisional ballot and you can still vote. Work with your elections office after Election Day to validate your ballot and it will be counted."
+                android:text="@string/backup_plan_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -529,8 +482,7 @@
                 android:id="@+id/button_eight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find Vote Center"
-                android:backgroundTint="@color/white"
+                android:text="@string/find_vote_center"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_regular"
                 android:layout_marginTop="8dp"
@@ -546,9 +498,9 @@
                 android:id="@+id/nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="09"
+                android:text="@string/_09"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -556,12 +508,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_eight" />
+
             <TextView
                 android:id="@+id/nine_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remind Your Community to Vote"
-                android:textSize="25dp"
+                android:text="@string/remind_your_community_to_vote"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -576,7 +529,7 @@
                 android:id="@+id/nine_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remember to remind your family, friends, neighbors and coworkers to register to vote by the registration deadline, and vote in-person or drop off your ballot by Election Day at 8 pm."
+                android:text="@string/remind_your_comunity_to_vote_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -590,9 +543,9 @@
                 android:id="@+id/ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="@string/_10"
                 android:textColor="@color/gayCityGreen"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -600,12 +553,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nine_description" />
+
             <TextView
                 android:id="@+id/ten_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wait for the Election Results"
-                android:textSize="25dp"
+                android:text="@string/wait_for_the_election_results"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/rokkitt_bold"
                 android:paddingRight="16dp"
@@ -620,14 +574,7 @@
                 android:id="@+id/ten_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Now it’s time to see who won the popular vote. Watch your local TV stations and most news stations to view the results as they come in from your state and others across the United States.
-\n\nRegardless of the results, this is the time for you to celebrate your voice being heard and to build a plan to get further involved with civic engagement if preferred. Here are just a few ideas:
-\n\n• Run for office (local, county, statewide, or federal)
-\n• Volunteer/Work on a candidate’s campaign
-\n• Volunteer/Work for a campaign/lobbying or voter registration organization
-\n• Volunteer/Work for a group that covers the elections
-\n• Organize your own voter drive
-\n• Get others in your community involved in civic engagement"
+                android:text="@string/wait_for_election_results_description"
                 android:fontFamily="@font/rokkitt_regular"
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
@@ -646,8 +593,7 @@
         android:id="@+id/button_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="back"
-        android:backgroundTint="@color/white"
+        android:text="@string/back"
         android:textColor="@color/black"
         android:fontFamily="@font/rokkitt_regular"
         android:layout_marginTop="8dp"
