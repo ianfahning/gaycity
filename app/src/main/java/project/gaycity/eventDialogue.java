@@ -73,8 +73,15 @@ public class eventDialogue extends DialogFragment {
         return view;
     }
 
+    //the text is surrounded by HTML stuff that causes lots of white space, this will just get the text
     private Spanned getContent(String content) {
-        return Html.fromHtml(content.substring(content.indexOf("<p>") + 3,content.lastIndexOf("</p>")));
+        //if the <p> tag is the very first thing, we need to add 1 otherwise it will be out of bounds
+        if (content.indexOf("<p>") == -1) {
+            return Html.fromHtml(content.substring(content.indexOf("<p>") + 1, content.lastIndexOf("</p>")));
+        } else {
+            return Html.fromHtml(content.substring(content.indexOf("<p>"), content.lastIndexOf("</p>")));
+        }
+
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
