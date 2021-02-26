@@ -6,171 +6,175 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        >
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:text="@string/welcome_to_the_gay_city_app"
-        android:typeface="sans"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:fontFamily="@font/rokkitt_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/text_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/welcome_to_the_gay_city_app"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_appointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/make_an_appointment"
-        android:fontFamily="@font/rokkitt_regular"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_donate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/donate_now"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_appointment"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_events"
-        app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_donate"
-        android:background="@color/gayCityDarkGreen"/>
-    <TextView
-        android:id="@+id/text_mission"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/our_mission_uppercase"
-        android:textColor="@color/white"
-        android:fontFamily="@font/rokkitt_bold"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_donate" />
-
-    <TextView
-        android:id="@+id/text_mission_statement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/our_mission_homepage_description"
-        android:fontFamily="@font/rokkitt_regular"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_mission" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_mission"
+            android:id="@+id/button_appointment"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/learn_more"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/black"
             android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/make_an_appointment"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_home"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_donate"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/donate_now"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_appointment"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintBottom_toTopOf="@+id/text_events"
+            app:layout_constraintEnd_toEndOf="@+id/text_mission_statement"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_donate" />
+
+        <TextView
+            android:id="@+id/text_mission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/our_mission_uppercase"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_donate" />
+
+        <TextView
+            android:id="@+id/text_mission_statement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/our_mission_homepage_description"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_mission" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_mission"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/learn_more"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_mission_statement"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="0dp"
             app:strokeColor="@color/black"
             app:strokeWidth="3dp" />
 
 
-    <TextView
-        android:id="@+id/text_events"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/events"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:fontFamily="@font/rokkitt_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_mission"/>
         <TextView
-            android:visibility="gone"
+            android:id="@+id/text_events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/events"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_mission" />
+
+        <TextView
             android:id="@+id/text_no_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
             android:gravity="center_horizontal"
             android:text="@string/there_are_currently_no_events"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:fontFamily="@font/rokkitt_bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_events"/>
+            app:layout_constraintTop_toBottomOf="@id/text_events" />
+
         <ProgressBar
             android:id="@+id/loading"
-            android:indeterminateDrawable="@drawable/progress"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
             android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_events"/>
+            app:layout_constraintTop_toBottomOf="@+id/text_events" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventRecyclerView"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_events"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/eventRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_events" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -6,82 +6,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.connect.ConnectFragment">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    >
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/gayCityDarkGreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:textSize="30sp"
-        android:fontFamily="@font/rokkitt_bold"
-        android:text="@string/technical_assistance"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="wrap_content"
-        android:padding="16dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:background="#00000000"
-        android:src="@drawable/woman_on_headset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/image_in_technical_assistance_tab"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2" />
+        <TextView
+            android:id="@+id/text_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/technical_assistance"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="#00000000"
+            android:contentDescription="@string/image_in_technical_assistance_tab"
+            android:padding="16dp"
+            android:src="@drawable/woman_on_headset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2" />
 
 
-    <TextView
-        android:id="@+id/outreach_description"
-        android:text="@string/technical_assistance_description"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:fontFamily="@font/rokkitt_regular"
-        android:textSize="17sp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView" />
+        <TextView
+            android:id="@+id/outreach_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/technical_assistance_description"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_outreach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/submit_request"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outreach_description"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_outreach"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/submit_request"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outreach_description"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -14,22 +14,22 @@
         android:layout_height="match_parent" />
 
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/semiTransparentWhite"
+        android:fitsSystemWindows="true"
+        android:visibility="visible">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:background="@color/semiTransparentWhite"
-            android:fitsSystemWindows="true"
-            android:visibility="visible">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="33dp"
-                android:background="@android:color/transparent"
-                android:dividerHeight="0dp" />
+            android:layout_marginTop="33dp"
+            android:background="@android:color/transparent"
+            android:dividerHeight="0dp" />
 
     </com.google.android.material.navigation.NavigationView>
 

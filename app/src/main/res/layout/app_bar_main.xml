@@ -15,21 +15,21 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:contentInsetStart="0dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:contentInsetStart="0dp"
             app:popupTheme="@style/Theme.GayCity.PopupOverlay">
 
             <ImageView
                 android:id="@+id/toolbar2"
                 android:layout_width="125dp"
                 android:layout_height="50dp"
-                android:adjustViewBounds="true"
-                android:visibility="gone"
-                android:layout_gravity="left"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/logo_gaycity_lgbtqcenter_green" />
+                android:layout_gravity="left"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logo_gaycity_lgbtqcenter_green"
+                android:visibility="gone" />
 
         </androidx.appcompat.widget.Toolbar>
 

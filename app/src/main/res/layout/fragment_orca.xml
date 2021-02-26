@@ -8,120 +8,123 @@
     tools:context=".ui.connect.ConnectFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/gayCityDarkGreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:textSize="30sp"
-        android:fontFamily="@font/rokkitt_bold"
-        android:layout_marginLeft="8dp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/orca_lift"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/orca_lift"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/ORCA_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="16dp"
-            android:paddingLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/orca_lift_description"
-            android:gravity="center"
             android:fontFamily="@font/rokkitt_regular"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/orca_lift_description"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_gallery" />
 
-    <TextView
-        android:id="@+id/ORCA_LIFT_cards_title"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="23sp"
-        android:fontFamily="@font/rokkitt_bold"
-        android:text="@string/where_do_orca_cards_work"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ORCA_description" />
-    <TextView
-        android:id="@+id/ORCA_LIFT_cards_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:textSize="17sp"
-        android:fontFamily="@font/rokkitt_regular"
-        android:text="@string/where_orca_cards_work"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ORCA_LIFT_cards_title" />
+        <TextView
+            android:id="@+id/ORCA_LIFT_cards_title"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/where_do_orca_cards_work"
+            android:textSize="23sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ORCA_description" />
+
+        <TextView
+            android:id="@+id/ORCA_LIFT_cards_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/where_orca_cards_work"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ORCA_LIFT_cards_title" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_College_ORCA"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
             android:text="@string/college_student_online_registration"
             android:textColor="@color/black"
-            android:fontFamily="@font/rokkitt_regular"
+            app:cornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ORCA_LIFT_cards_description"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="0dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="3dp"/>
+            app:strokeWidth="3dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_Non_College_ORCA"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
             android:text="@string/non_student_online_registration"
             android:textColor="@color/black"
-            android:fontFamily="@font/rokkitt_regular"
+            app:cornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_College_ORCA"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="0dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="3dp"/>
+            app:strokeWidth="3dp" />
+
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingLeft="16dp"
-            android:textSize="17sp"
             android:fontFamily="@font/rokkitt_regular"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:text="@string/orca_phone"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_Non_College_ORCA" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

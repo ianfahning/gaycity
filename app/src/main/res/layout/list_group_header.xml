@@ -2,31 +2,31 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#00000000">
+    android:background="#00000000"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_marginLeft="8dp"
-        android:visibility="gone"
         android:id="@+id/arrow"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:contentDescription="@string/location_for_potential_image"
-        android:src="@drawable/ic_keyboard_arrow_down_foreground" />
+        android:src="@drawable/ic_keyboard_arrow_down_foreground"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/lblListHeader"
         android:layout_width="match_parent"
         android:layout_height="?attr/listPreferredItemHeightSmall"
-        android:gravity="center_vertical"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:paddingRight="?attr/listPreferredItemPaddingRight"
-        android:fontFamily="@font/rokkitt_bold"
-        android:textColor="@color/black"
         android:background="@color/transparent"
+        android:fontFamily="@font/rokkitt_bold"
+        android:gravity="center_vertical"
         android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:paddingEnd="?attr/listPreferredItemPaddingRight"
+        android:paddingRight="?attr/listPreferredItemPaddingRight"
+        android:textColor="@color/black"
         android:textSize="22sp" />
 </FrameLayout>

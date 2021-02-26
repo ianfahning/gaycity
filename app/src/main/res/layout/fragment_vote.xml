@@ -8,146 +8,147 @@
     tools:context=".ui.connect.ConnectFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/gayCityDarkGreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:textSize="30sp"
-        android:fontFamily="@font/rokkitt_bold"
-        android:text="@string/vote_for_visibility"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/gayCityDarkGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/vote_description"
-        android:gravity="center"
-        android:text="@string/vote_for_visibility_description"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:fontFamily="@font/rokkitt_regular"
-        android:textSize="17sp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+        <TextView
+            android:id="@+id/text_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rokkitt_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/vote_for_visibility"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register_to_vote"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vote_description"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
+        <TextView
+            android:id="@+id/vote_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/vote_for_visibility_description"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_ballot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/request_absentee_ballot"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_register"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_register"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/register_to_vote"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vote_description"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/change_address"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_ballot"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_ballot"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/request_absentee_ballot"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_register"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_accessible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/accessible_voting"
-        android:textColor="@color/black"
-        android:fontFamily="@font/rokkitt_regular"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_address"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="0dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_address"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/change_address"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_ballot"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView3"
-        android:layout_width="match_parent"
-        android:layout_height="475dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/gayCityLightGreen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_accessible"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
+            android:text="@string/accessible_voting"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_address"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView3"
+            android:layout_width="match_parent"
+            android:layout_height="475dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gayCityLightGreen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
 
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="wrap_content"
-            android:padding="16dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="#00000000"
+            android:contentDescription="@string/image_in_vote_for_visibility_tab"
+            android:padding="16dp"
             android:src="@drawable/vote"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_alignParentStart="true"
-            android:contentDescription="@string/image_in_vote_for_visibility_tab"
             app:layout_constraintTop_toBottomOf="@+id/button_accessible" />
 
         <TextView
             android:id="@+id/election_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/_10_ways_to_prep_for_an_election"
-            android:textSize="25sp"
             android:fontFamily="@font/rokkitt_bold"
+            android:text="@string/_10_ways_to_prep_for_an_election"
+            android:textColor="@color/black"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgView" />
@@ -156,31 +157,31 @@
             android:id="@+id/election_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/_10_ways_to_prepare_description"
-            android:textSize="17sp"
+            android:fontFamily="@font/rokkitt_bold"
             android:gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:fontFamily="@font/rokkitt_bold"
+            android:text="@string/_10_ways_to_prepare_description"
+            android:textColor="@color/black"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/election_title" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_vote"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rokkitt_regular"
             android:text="@string/learn_more"
             android:textColor="@color/black"
-            android:fontFamily="@font/rokkitt_regular"
-            android:layout_marginTop="8dp"
+            app:cornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/election_description"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="0dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="3dp"/>
+            app:strokeWidth="3dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
