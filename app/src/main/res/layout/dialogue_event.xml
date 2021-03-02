@@ -43,6 +43,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_reminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/rokkitt_regular"
+                android:text="@string/set_reminder"
+                android:textColor="@color/white"
+                app:cornerRadius="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_time"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
             <TextView
                 android:id="@+id/content"
                 android:layout_width="wrap_content"
@@ -57,7 +72,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_time" />
+                app:layout_constraintTop_toBottomOf="@+id/button_reminder" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_register"

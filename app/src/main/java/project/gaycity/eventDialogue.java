@@ -20,13 +20,16 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class eventDialogue extends DialogFragment {
 
     private final JSONObject json;
     private static AlertDialog dialog;
 
-    public eventDialogue(JSONObject json){
+    public eventDialogue(JSONObject json) {
         this.json = json;
     }
 
@@ -43,16 +46,42 @@ public class eventDialogue extends DialogFragment {
             JSONObject data = ((JSONObject) json.get("data"));
             JSONObject date = ((JSONObject) json.get("date"));
             String title = data.getString("title");
-            String startDate = formatDate(((JSONObject) date.get("start")).getString("date"));
+            String startDate = ((JSONObject) date.get("start")).getString("date");
+            String formattedStartDate = formatDate(startDate);
             String startTime = ((JSONObject) data.get("time")).getString("start");
+            String endDate = ((JSONObject) date.get("end")).getString("date");
             String endTime = ((JSONObject) data.get("time")).getString("end");
             Spanned content = getContent(data.getString("content"));
-            String eventDate = startDate + "  " + startTime + "-" + endTime;
+            String eventDate = formattedStartDate + "  " + startTime + "-" + endTime;
 
             //set all the text views with the data
             ((TextView) view.findViewById(R.id.title)).setText(title);
             ((TextView) view.findViewById(R.id.content)).setText(content);
             ((TextView) view.findViewById(R.id.date_time)).setText(eventDate);
+
+            //create onclick to set a reminder in the users calender
+            Button reminderButton = view.findViewById(R.id.button_reminder);
+            View.OnClickListener calenderEvent = v -> {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                //process start and end times
+                //i didn't use a Date object because it always gave me a year in the early 1900s
+                int[] eventStartDate = getTimeAndDate(startDate, startTime);
+                int[] eventEndDate = getTimeAndDate(endDate, endTime);
+                Calendar beginTime = Calendar.getInstance();
+                beginTime.set(eventStartDate[0], eventStartDate[1], eventStartDate[2], eventStartDate[3], eventStartDate[4]);
+                Calendar finishTime = Calendar.getInstance();
+                finishTime.set(eventEndDate[0], eventEndDate[1], eventEndDate[2], eventEndDate[3], eventEndDate[4]);
+                Intent intent = new Intent(Intent.ACTION_EDIT);
+                //set the data
+                intent.setType("vnd.android.cursor.item/event");
+                intent.putExtra("beginTime", beginTime.getTimeInMillis());
+                intent.putExtra("rrule", "FREQ=YEARLY");
+                intent.putExtra("endTime", finishTime.getTimeInMillis());
+                intent.putExtra("title", title);
+                startActivity(intent);
+            };
+            reminderButton.setOnClickListener(calenderEvent);
+
             //get the link to register for the event
             String link = ((JSONObject) data.get("meta")).getString("mec_more_info");
             Button registerButton = view.findViewById(R.id.button_register);
@@ -71,6 +100,22 @@ public class eventDialogue extends DialogFragment {
             e.printStackTrace();
         }
         return view;
+    }
+
+    //give a date formatted like "yyyy-mm-dd" and a time formatted like "hh:mm pm" it will return an
+    //array of those numbers in order
+    private int[] getTimeAndDate(String Date, String Time) {
+        int year = Integer.parseInt(Date.substring(0, 4));
+        int month = Integer.parseInt(Date.substring(5, 7)) - 1;
+        int day = Integer.parseInt(Date.substring(8, 10));
+        int hour = 0;
+        if (Time.substring(5, 7).toLowerCase().equals("pm")) {
+            hour = Integer.parseInt(Time.substring(0, 1)) + 12;
+        } else {
+            hour = Integer.parseInt(Time.substring(0, 1));
+        }
+        int minute = Integer.parseInt(Time.substring(2, 4));
+        return new int[]{year, month, day, hour, minute};
     }
 
     //the text is surrounded by HTML stuff that causes lots of white space, this will just get the text

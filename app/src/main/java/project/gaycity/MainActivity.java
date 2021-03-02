@@ -1,9 +1,11 @@
 package project.gaycity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
@@ -70,9 +74,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         populateMenu();
         //gets the current popup if there is one
         new getPopup().execute();
+        //start notification service
+        startService(new Intent(this, notificationService.class));
+        System.out.println("google play services = " + String.valueOf(checkGooglePlayServices()));
+
     }
 
-
+    private boolean checkGooglePlayServices() {
+        // 1
+        int status = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
+        // 2
+        if (status != ConnectionResult.SUCCESS) {
+            Log.e("TAG", "Error");
+            // ask user to update google play services and manage the error.
+            return false;
+        } else {
+            // 3
+            Log.i("TAG", "Google play services updated");
+            return true;
+        }
+    }
 
 
     @Override
@@ -80,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
-    public void populateMenu(){
+    public void populateMenu() {
         //home
         ArrayList<header> headers = new ArrayList<>();
         ArrayList<subHeader> none = new ArrayList<>();

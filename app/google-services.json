@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34811691439",
+    "project_id": "gay-city-a4b5d",
+    "storage_bucket": "gay-city-a4b5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34811691439:android:6356be93a57e2695376f5a",
+        "android_client_info": {
+          "package_name": "project.gaycity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34811691439-994ictcqh9gvcp47tj8vbqlfks73j3uv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpPv3_E6paEEWOkqRg7RhnJrXbXWMqc_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34811691439-994ictcqh9gvcp47tj8vbqlfks73j3uv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
