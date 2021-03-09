@@ -1,6 +1,5 @@
 package project.gaycity;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -20,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,9 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         populateMenu();
         //gets the current popup if there is one
         new getPopup().execute();
-        //start notification service
-        startService(new Intent(this, notificationService.class));
         System.out.println("google play services = " + String.valueOf(checkGooglePlayServices()));
+        FirebaseMessaging.getInstance().getToken();
 
     }
 
