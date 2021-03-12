@@ -80,15 +80,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private boolean checkGooglePlayServices() {
-        // 1
         int status = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
-        // 2
         if (status != ConnectionResult.SUCCESS) {
             Log.e("TAG", "Error");
-            // ask user to update google play services and manage the error.
             return false;
         } else {
-            // 3
             Log.i("TAG", "Google play services updated");
             return true;
         }
@@ -107,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headers.add(new header("Home",none,false, R.id.fragment_home));
         //health
         ArrayList<subHeader> healthSubHeaders = new ArrayList<>();
-        healthSubHeaders.add(new subHeader("Make and Appointment",R.id.fragment_appointment,true));
+        healthSubHeaders.add(new subHeader("Make an Appointment",R.id.fragment_appointment,true));
         healthSubHeaders.add(new subHeader("Get Test Results",R.id.fragment_test_results,true));
         healthSubHeaders.add(new subHeader("Health Care Enrollment",R.id.fragment_health_care,true));
         healthSubHeaders.add(new subHeader("PrEP",R.id.fragment_prep,true));

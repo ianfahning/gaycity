@@ -28,6 +28,7 @@ import java.net.URL;
 
 import project.gaycity.R;
 import project.gaycity.eventAdapter;
+import project.gaycity.ui.webviewDialogue;
 
 public class HomeFragment extends Fragment {
 
@@ -58,9 +59,8 @@ public class HomeFragment extends Fragment {
         donateButton.setOnClickListener(donateLink);
         Button appointmentButton = (Button) getView().findViewById(R.id.button_appointment);
         View.OnClickListener appointmentLink = v -> {
-            Uri uriUrl = Uri.parse("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-            startActivity(launchBrowser);
+            webviewDialogue alertDialog = webviewDialogue.newInstance("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
+            alertDialog.show(fm, "fragment_alert");
         };
         appointmentButton.setOnClickListener(appointmentLink);
     }

@@ -11,10 +11,12 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import org.jetbrains.annotations.NotNull;
 
 import project.gaycity.R;
+import project.gaycity.ui.webviewDialogue;
 
 public class AppointmentFragment extends Fragment {
 
@@ -27,10 +29,10 @@ public class AppointmentFragment extends Fragment {
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         //set the onclick for the button
         Button appointmentButton = (Button) getView().findViewById(R.id.button_appointment_fragment);
+        FragmentManager fm = getFragmentManager();
         View.OnClickListener appointmentLink = v -> {
-            Uri uriUrl = Uri.parse("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-            startActivity(launchBrowser);
+            webviewDialogue alertDialog = webviewDialogue.newInstance("https://gaycity.as.me/schedule.php?appointmentType=category%3AHIV%2FSTI+Testing");
+            alertDialog.show(fm, "fragment_alert");
         };
         appointmentButton.setOnClickListener(appointmentLink);
     }
