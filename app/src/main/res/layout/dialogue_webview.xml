@@ -17,6 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+
+
     <WebView
         android:visibility="invisible"
         android:id="@+id/webView"
