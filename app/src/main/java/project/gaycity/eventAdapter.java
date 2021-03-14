@@ -1,6 +1,8 @@
 package project.gaycity;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,12 +73,16 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
             //get the data from the JSON
             JSONObject data = ((JSONObject) event.get("data"));
             JSONObject date = ((JSONObject) event.get("date"));
-            String title = data.getString("title");
+            Spanned title = Html.fromHtml(data.getString("title"));
             String startDate = formatDate(((JSONObject) date.get("start")).getString("date"));
             String startTime = ((JSONObject) data.get("time")).getString("start");
             String endTime = ((JSONObject) data.get("time")).getString("end");
-            String eventDate = startDate + "  " + startTime + "-" + endTime;
-
+            String eventDate = "";
+            if(endTime.isEmpty()) {
+                eventDate = startDate + "  " + startTime;
+            }else{
+                eventDate = startDate + "  " + startTime + "-" + endTime;
+            }
             //set the text views with the data
             holder.title.setText(title);
             holder.date.setText(eventDate);

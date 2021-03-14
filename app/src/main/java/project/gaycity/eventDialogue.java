@@ -45,14 +45,19 @@ public class eventDialogue extends DialogFragment {
             //pull all the data from the JSON
             JSONObject data = ((JSONObject) json.get("data"));
             JSONObject date = ((JSONObject) json.get("date"));
-            String title = data.getString("title");
+            Spanned title = Html.fromHtml(data.getString("title"));
             String startDate = ((JSONObject) date.get("start")).getString("date");
             String formattedStartDate = formatDate(startDate);
             String startTime = ((JSONObject) data.get("time")).getString("start");
             String endDate = ((JSONObject) date.get("end")).getString("date");
             String endTime = ((JSONObject) data.get("time")).getString("end");
             Spanned content = getContent(data.getString("content"));
-            String eventDate = formattedStartDate + "  " + startTime + "-" + endTime;
+            String eventDate = "";
+            if(endTime.isEmpty()) {
+                eventDate = startDate + "  " + startTime;
+            }else{
+                eventDate = startDate + "  " + startTime + "-" + endTime;
+            }
 
             //set all the text views with the data
             ((TextView) view.findViewById(R.id.title)).setText(title);
@@ -66,7 +71,12 @@ public class eventDialogue extends DialogFragment {
                 //process start and end times
                 //i didn't use a Date object because it always gave me a year in the early 1900s
                 int[] eventStartDate = getTimeAndDate(startDate, startTime);
-                int[] eventEndDate = getTimeAndDate(endDate, endTime);
+                int[] eventEndDate = null;
+                if(endTime.isEmpty()){
+                    eventEndDate = eventStartDate;
+                }else {
+                    eventEndDate = getTimeAndDate(endDate, endTime);
+                }
                 Calendar beginTime = Calendar.getInstance();
                 beginTime.set(eventStartDate[0], eventStartDate[1], eventStartDate[2], eventStartDate[3], eventStartDate[4]);
                 Calendar finishTime = Calendar.getInstance();
@@ -77,7 +87,7 @@ public class eventDialogue extends DialogFragment {
                 intent.putExtra("beginTime", beginTime.getTimeInMillis());
                 intent.putExtra("rrule", "FREQ=YEARLY");
                 intent.putExtra("endTime", finishTime.getTimeInMillis());
-                intent.putExtra("title", title);
+                intent.putExtra("title", title.toString());
                 startActivity(intent);
             };
             reminderButton.setOnClickListener(calenderEvent);
