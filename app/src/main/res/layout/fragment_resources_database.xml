@@ -67,12 +67,13 @@
         android:id="@+id/image_back_to_top"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="150dp"
         android:contentDescription="@string/up_arrow_description"
         android:src="@mipmap/top_arrow"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/resource_error"

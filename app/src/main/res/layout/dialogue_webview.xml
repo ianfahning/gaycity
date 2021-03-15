@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ProgressBar
@@ -18,7 +19,6 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-
     <WebView
         android:visibility="invisible"
         android:id="@+id/webView"
@@ -28,11 +28,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_weight=".25"/>
+        android:layout_marginBottom="100dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_back"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/back"
         app:backgroundTint="@color/white"

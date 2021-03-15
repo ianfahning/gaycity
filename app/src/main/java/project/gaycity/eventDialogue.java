@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,17 +52,23 @@ public class eventDialogue extends DialogFragment {
             String startTime = ((JSONObject) data.get("time")).getString("start");
             String endDate = ((JSONObject) date.get("end")).getString("date");
             String endTime = ((JSONObject) data.get("time")).getString("end");
-            Spanned content = getContent(data.getString("content"));
-            String eventDate = "";
-            if(endTime.isEmpty()) {
+            String content = data.getString("content");
+            if (content.isEmpty()) {
+                content = ((JSONObject) data.get("post")).getString("post_content");
+            }
+            Spanned contentText = getContent(content);
+            String eventDate;
+            if (endTime.isEmpty()) {
                 eventDate = startDate + "  " + startTime;
-            }else{
+            } else {
                 eventDate = startDate + "  " + startTime + "-" + endTime;
             }
 
             //set all the text views with the data
             ((TextView) view.findViewById(R.id.title)).setText(title);
-            ((TextView) view.findViewById(R.id.content)).setText(content);
+            TextView body = view.findViewById(R.id.content);
+            body.setMovementMethod(LinkMovementMethod.getInstance());
+            body.setText(contentText);
             ((TextView) view.findViewById(R.id.date_time)).setText(eventDate);
 
             //create onclick to set a reminder in the users calender
@@ -118,7 +125,7 @@ public class eventDialogue extends DialogFragment {
         int year = Integer.parseInt(Date.substring(0, 4));
         int month = Integer.parseInt(Date.substring(5, 7)) - 1;
         int day = Integer.parseInt(Date.substring(8, 10));
-        int hour = 0;
+        int hour;
         if (Time.substring(5, 7).toLowerCase().equals("pm")) {
             hour = Integer.parseInt(Time.substring(0, 1)) + 12;
         } else {
@@ -131,10 +138,11 @@ public class eventDialogue extends DialogFragment {
     //the text is surrounded by HTML stuff that causes lots of white space, this will just get the text
     private Spanned getContent(String content) {
         //if the <p> tag is the very first thing, we need to add 1 otherwise it will be out of bounds
-        if (content.indexOf("<p>") == -1) {
-            return Html.fromHtml(content.substring(content.indexOf("<p>") + 1, content.lastIndexOf("</p>")));
+        if (content.indexOf("<p") == -1) {
+            System.out.println(content);
+            return Html.fromHtml(content.substring(content.indexOf("<p") + 1, content.lastIndexOf("</p>")));
         } else {
-            return Html.fromHtml(content.substring(content.indexOf("<p>"), content.lastIndexOf("</p>")));
+            return Html.fromHtml(content.substring(content.indexOf("<p"), content.lastIndexOf("</p>")));
         }
 
     }

@@ -34,14 +34,22 @@ public class ResourcesDatabaseFragment extends Fragment {
     private boolean hasApeared = true;
     private boolean doScroll = true;
     private double position = 0;
+    private getResources task = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_resources_database, container, false);
-        new getResources().execute();
+        task = new getResources();
+        task.execute();
         return root;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //stops the async if the user switches tabs before it it done
+        task.cancel(true);
+    }
 
     private class getResources extends AsyncTask<Void, Void, JSONObject> {
 

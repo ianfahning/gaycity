@@ -1,18 +1,13 @@
 package project.gaycity.ui;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
@@ -44,6 +39,7 @@ public class webviewDialogue extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         WebView webView = view.findViewById(R.id.webView);
         ProgressBar loading = view.findViewById(R.id.loading);
+        //LinearLayout webLayout = view.findViewById(R.id.webLayout);
         //needed for pages that use javascript
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setUseWideViewPort(true);
@@ -53,6 +49,7 @@ public class webviewDialogue extends DialogFragment {
 
             public void onPageFinished(WebView view, String url) {
                 loading.setVisibility(View.INVISIBLE);
+                //webLayout.setVisibility(View.VISIBLE);
                 webView.setVisibility(View.VISIBLE);
             }
         });
@@ -61,8 +58,7 @@ public class webviewDialogue extends DialogFragment {
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog alertDialogBuilder = new Dialog(getActivity());
-        dialog = alertDialogBuilder;
+        dialog = new Dialog(getActivity());
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         dialog.show();
         return dialog;
